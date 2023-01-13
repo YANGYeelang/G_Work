@@ -2,8 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_auth/screens/home_screen.dart';
-import 'package:get_auth/screens/signin_page.dart';
-import 'package:get_auth/screens/welcome_page.dart';
+import 'package:get_auth/screens/main_screen.dart';
+import 'package:get_auth/screens/signin_screen.dart';
+import 'package:get_auth/screens/log_out_screen.dart';
 
 class AuthController extends GetxController {
   //AuthController.instance
@@ -16,7 +17,7 @@ class AuthController extends GetxController {
   void onReady() {
     super.onReady();
     _user = Rx<User?>(auth.currentUser);
-    //our user would be not notified
+    // our user would be not notified
     _user.bindStream(auth.userChanges());
     ever(_user, _initialScreen);
   }
@@ -24,10 +25,12 @@ class AuthController extends GetxController {
   _initialScreen(User? user) {
     if (user == null) {
       print('Login Page');
-      Get.offAll(() => const SignInPage());
+      Get.offAll(() => SignInPage());
     } else {
-      Get.offAll(() => const HomeScreen());
-      // Get.offAll(() => WelcomePage(email: user.email!));
+      Get.offAll(() => MainScreen(
+            navCurrentIndex: '0',
+          ));
+      // Get.offAll(() => WelcomeScreen(email: user.email!));
     }
   }
 
