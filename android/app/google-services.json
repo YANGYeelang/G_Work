@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "246239453939",
+    "project_id": "getauth-ee95a",
+    "storage_bucket": "getauth-ee95a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246239453939:android:285c29270d09c5c66ccd86",
+        "android_client_info": {
+          "package_name": "com.example.get_auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246239453939-i0n40vn9p4oqcj29hqmfgkaoi739hqk4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6tnt73wo6PP8R3RW6DwzhoWLhjpH6uPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246239453939-i0n40vn9p4oqcj29hqmfgkaoi739hqk4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
