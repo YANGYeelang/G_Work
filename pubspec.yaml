@@ -43,6 +43,10 @@ dependencies:
   d_chart: ^1.0.0
   spincircle_bottom_bar: ^2.0.0
   provider: ^6.0.5
+  table_calendar: ^3.0.8
+  badges: ^2.0.3
+  intl: ^0.17.0
+  shared_preferences: ^2.0.17
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -86,9 +90,9 @@ flutter:
         - asset: assets/fonts/notosan.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
+    - family: Phetsarath
+      fonts:
+        - asset: assets/fonts/Phetsarath.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

@@ -114,10 +114,6 @@ class _SavedScreenState extends State<SavedScreen> {
                           builder: (context) =>
                               MainScreen(navCurrentIndex: '0')));
                 },
-                child: Text(
-                  'ຕົກລົງ',
-                  style: TextStyle(fontSize: 26, letterSpacing: -0.5),
-                ),
                 style: ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(
                     Theme.of(context).focusColor,
@@ -127,6 +123,10 @@ class _SavedScreenState extends State<SavedScreen> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
+                ),
+                child: const Text(
+                  'ຕົກລົງ',
+                  style: TextStyle(fontSize: 26, letterSpacing: -0.5),
                 ),
               ),
             ),

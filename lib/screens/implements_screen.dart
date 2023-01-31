@@ -40,17 +40,17 @@ class _ImpScreenState extends State<ImpScreen> {
                   Positioned(
                     top: 0,
                     left: 0,
-                    child: Container(
+                    child: SizedBox(
                       width: w,
                       height: 130,
                       child: Stack(
                         children: [
                           Positioned(
                             top: 0,
-                            left: w * 0.07,
+                            left: w * 0.05,
                             child: SizedBox(
-                              width: w * 0.45,
-                              height: h * 0.1,
+                              width: 190,
+                              height: 85,
                               child: ElevatedButton(
                                 style: ButtonStyle(
                                   shape: MaterialStateProperty.all<
@@ -75,20 +75,21 @@ class _ImpScreenState extends State<ImpScreen> {
                                 child: Text(
                                   'ລາຍຮັບ',
                                   style: TextStyle(
+                                      fontFamily: 'Phetsarath',
                                       color: _detailItem == 0
                                           ? Theme.of(context).indicatorColor
-                                          : Colors.green,
+                                          : const Color.fromARGB(255, 0, 255, 8),
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 27),
+                                      fontSize: 28),
                                 ),
                               ),
                             ),
                           ),
                           Positioned(
-                            left: w * 0.47,
+                            left: w * 0.49,
                             child: SizedBox(
-                              width: w * 0.45,
-                              height: h * 0.1,
+                              width: 190,
+                              height: 85,
                               child: ElevatedButton(
                                 style: ButtonStyle(
                                   shape: MaterialStateProperty.all<
@@ -113,12 +114,13 @@ class _ImpScreenState extends State<ImpScreen> {
                                 child: Text(
                                   'ລາຍຈ່າຍ',
                                   style: TextStyle(
+                                      fontFamily: 'Phetsarath',
                                       color: _detailItem == 1
                                           ? Theme.of(context).indicatorColor
                                           : const Color.fromARGB(
-                                              255, 233, 39, 39),
+                                              255, 247, 20, 20),
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 27),
+                                      fontSize: 28),
                                 ),
                               ),
                             ),

@@ -37,6 +37,8 @@ class CustomTheme with ChangeNotifier {
           ),
         ),
       ),
+      canvasColor: const Color.fromARGB(255, 110, 100, 237),
+      shadowColor: Color.fromARGB(255, 122, 177, 102),
       iconTheme: const IconThemeData(color: Color.fromARGB(255, 234, 209, 97)),
       errorColor: const Color.fromARGB(255, 40, 92, 42),
       focusColor: const Color.fromARGB(255, 116, 182, 194),
@@ -48,7 +50,7 @@ class CustomTheme with ChangeNotifier {
       buttonColor: Colors.white,
       cardColor: Colors.white,
       backgroundColor: Colors.white,
-      scaffoldBackgroundColor: const Color.fromARGB(255, 142, 230, 231),
+      scaffoldBackgroundColor: Color.fromARGB(255, 176, 218, 216),
       textTheme: const TextTheme(
         headline1: TextStyle(color: Colors.black),
         headline2: TextStyle(color: Colors.black),
@@ -61,7 +63,9 @@ class CustomTheme with ChangeNotifier {
   static ThemeData get darkTheme {
     return ThemeData(
       bottomNavigationBarTheme:
-          BottomNavigationBarThemeData(backgroundColor: Colors.amber),
+          const BottomNavigationBarThemeData(backgroundColor: Colors.amber),
+      canvasColor: const Color.fromARGB(255, 142, 230, 231),
+      shadowColor: const Color.fromARGB(255, 54, 244, 158),
       iconTheme: const IconThemeData(color: Colors.lightBlue),
       errorColor: const Color.fromARGB(255, 112, 255, 117),
       focusColor: const Color.fromARGB(255, 38, 54, 52),

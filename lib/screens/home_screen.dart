@@ -16,154 +16,141 @@ class _HomeScreenState extends State<HomeScreen> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    return SingleChildScrollView(
-      child: Container(
+    return Scaffold(
+      body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              child: SizedBox(
-                width: w,
-                height: h * 0.23,
-                child: Align(
-                  alignment: Alignment(1, 0.8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: w * 0.3,
-                        height: h * 0.1,
-                        child: Column(
-                          children: [
-                            const Text(
-                              'ຍອດທັງໝົດ',
+            SizedBox(
+              width: w,
+              height: h * 0.23,
+              child: Align(
+                alignment: const Alignment(1, 0.8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      width: w * 0.3,
+                      height: h * 0.1,
+                      child: Column(
+                        children: [
+                          const Text(
+                            'ຍອດທີເຫຼືອທັງໝົດ',
+                            style: TextStyle(
+                              fontSize: 16,
+                              letterSpacing: -0.4,
+                              fontFamily: 'Phetsarath',
+                            ),
+                          ),
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              fixedSize: MaterialStateProperty.all(
+                                const Size(125, 43),
+                              ),
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ),
+                            child: const Text(
+                              '5,000,000 K',
                               style: TextStyle(
-                                fontSize: 16,
-                                letterSpacing: -0.8,
-                              ),
+                                  fontSize: 15,
+                                  color: Color.fromARGB(255, 142, 230, 231)),
                             ),
-                            ElevatedButton(
-                              style: ButtonStyle(
-                                // backgroundColor:
-                                // MaterialStateProperty.all(Colors.white),
-                                fixedSize: MaterialStateProperty.all(
-                                  const Size(125, 43),
-                                ),
-                                shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                              ),
-                              child: const Text(
-                                '5,000,000 K',
+                            onPressed: () {},
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: w * 0.6,
+                      height: h * 0.13,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Theme.of(context).dividerColor,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                'ລາຍຮັບ',
                                 style: TextStyle(
-                                    fontSize: 15,
-                                    color: Color.fromARGB(255, 142, 230, 231)),
+                                  color: Theme.of(context).errorColor,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w800,
+                                  letterSpacing: -0.4,
+                                  fontFamily: 'Phetsarath',
+                                ),
                               ),
-                              onPressed: () {},
-                            )
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Container(
-                        width: w * 0.6,
-                        height: h * 0.13,
-                        padding: const EdgeInsets.only(left: 20),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Theme.of(context).dividerColor,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              // crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'ລາຍຮັບ',
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 141, 229, 110),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w800,
-                                    letterSpacing: -0.8,
+                              ElevatedButton(
+                                onPressed: () {},
+                                style: ButtonStyle(
+                                  fixedSize: MaterialStateProperty.all(
+                                    const Size(140, 43),
+                                  ),
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
                                 ),
-                                const SizedBox(
-                                  width: 18,
+                                child: Text(
+                                  '100,000 K',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Theme.of(context).accentColor,
+                                  ),
                                 ),
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    '100,000 K',
-                                    style: TextStyle(
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              const Text(
+                                'ລາຍຈ່າຍ',
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 238, 72, 50),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w800,
+                                  letterSpacing: -0.4,
+                                  fontFamily: 'Phetsarath',
+                                ),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {},
+                                style: ButtonStyle(
+                                  fixedSize: MaterialStateProperty.all(
+                                    const Size(140, 43),
+                                  ),
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                ),
+                                child: Text(
+                                  '50,000 K',
+                                  style: TextStyle(
                                       fontSize: 15,
-                                      color: Theme.of(context).accentColor,
-                                    ),
-                                  ),
-                                  style: ButtonStyle(
-                                    fixedSize: MaterialStateProperty.all(
-                                      const Size(140, 43),
-                                    ),
-                                    shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                const Text(
-                                  'ລາຍຈ່າຍ',
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 219, 72, 52),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w800,
-                                    letterSpacing: -0.8,
-                                  ),
+                                      color: Theme.of(context).accentColor),
                                 ),
-                                const SizedBox(
-                                  width: 9,
-                                ),
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    '50,000 K',
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color: Theme.of(context).accentColor),
-                                  ),
-                                  style: ButtonStyle(
-                                    fixedSize: MaterialStateProperty.all(
-                                      const Size(140, 43),
-                                    ),
-                                    shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
-            Container(
-              child: Column(
-                children: [ListMenuScreen(), const Detail()],
-              ),
+            Column(
+              children: [ListMenuScreen(), const Detail()],
             )
           ],
         ),

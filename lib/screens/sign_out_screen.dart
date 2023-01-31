@@ -2,32 +2,36 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_auth/components/themes.dart';
-import 'package:get_auth/screens/main_screen.dart';
+// import 'package:get_auth/screens/main_screen.dart';
 import 'package:get_auth/screens/about_screen.dart';
 import 'package:get_auth/screens/auth_controller.dart';
-import 'package:provider/provider.dart';
-import 'package:get_auth/components/mode_color.dart';
+// import 'package:get_auth/components/mode_color.dart';
+import 'package:get_auth/screens/firestore.dart';
 
+// ignore: must_be_immutable
 class LogOutScreen extends StatefulWidget {
   String email;
   // int newTheme;
   // Function callBackFunction;
-  LogOutScreen(
-      {super.key,
-      required this.email,
-      // required this.newTheme,
-      // required this.callBackFunction,
-      });
+  LogOutScreen({
+    super.key,
+    required this.email,
+    // required this.newTheme,
+    // required this.callBackFunction,
+  });
 
   @override
-  State<LogOutScreen> createState() => _LogOutScreenState();
+  // ignore: no_logic_in_create_state
+  State<LogOutScreen> createState() => _LogOutScreenState(email);
 }
 
 class _LogOutScreenState extends State<LogOutScreen> {
   late bool themevalue = true;
+  String email;
+  _LogOutScreenState(this.email);
+
   void checktheme(bool changed) {
     themevalue = changed;
-
     print(themevalue);
   }
 
@@ -70,13 +74,16 @@ class _LogOutScreenState extends State<LogOutScreen> {
                             color: Colors.black,
                           ),
                           Container(
+                            padding: EdgeInsets.only(left: w * 0.27),
                             height: h * 0.08,
+                            width: w * 0.8,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
                                   'ໂໝດແສງ',
                                   style: TextStyle(
+                                    fontFamily: 'Phetsarath',
                                     fontSize: 26,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -90,6 +97,7 @@ class _LogOutScreenState extends State<LogOutScreen> {
                                     },
                                     icon: Icon(
                                       Icons.brightness_4_rounded,
+                                      size: 30,
                                       color: Theme.of(context).accentColor,
                                     )),
                               ],
@@ -104,20 +112,42 @@ class _LogOutScreenState extends State<LogOutScreen> {
                             color: Colors.black,
                           ),
                           Container(
+                            padding: EdgeInsets.only(left: w * 0.29),
                             height: h * 0.08,
-                            child: Center(
-                              child: RichText(
-                                text: TextSpan(
-                                  text: 'ກ່ຽວກັບ',
-                                  style: TextStyle(
-                                    color: Theme.of(context).indicatorColor,
-                                    fontSize: 26,
-                                    fontWeight: FontWeight.w500,
+                            width: w * 0.8,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                RichText(
+                                  text: TextSpan(
+                                    text: 'ກ່ຽວກັບ',
+                                    style: TextStyle(
+                                      fontFamily: 'Phetsarath',
+                                      color: Theme.of(context).indicatorColor,
+                                      fontSize: 26,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap =
+                                          () => Get.to(() => const About()),
                                   ),
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () => Get.to(() => const About()),
                                 ),
-                              ),
+                                IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const About()));
+                                    },
+                                    icon: Icon(
+                                      Icons.keyboard_arrow_right,
+                                      size: 40,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                    )),
+                              ],
                             ),
                           ),
                           const SizedBox(
@@ -132,12 +162,13 @@ class _LogOutScreenState extends State<LogOutScreen> {
                             onTap: () {
                               AuthController.instance.logOut();
                             },
-                            child: Container(
+                            child: SizedBox(
                               height: h * 0.09,
                               child: const Center(
                                 child: Text(
                                   'ອອກຈາກລະບົບ',
                                   style: TextStyle(
+                                    fontFamily: 'Phetsarath',
                                     fontSize: 26,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -157,57 +188,65 @@ class _LogOutScreenState extends State<LogOutScreen> {
                   Positioned(
                     top: 15,
                     left: 20,
-                    child: Row(
-                      children: [
-                        Container(
-                          width: w * 0.3,
-                          height: h * 0.15,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 211, 211, 201),
-                            borderRadius: BorderRadius.circular(100),
-                            image: const DecorationImage(
-                                image: AssetImage('assets/images/welcome.png'),
-                                fit: BoxFit.contain),
+                    child: SizedBox(
+                      height: 130,
+                      child: Row(
+                        children: [
+                          const CircleAvatar(
+                            radius: 65,
+                            backgroundImage:
+                                AssetImage('assets/images/welcome.png'),
+                            // child: Text(email),
                           ),
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              width: w * 0.6,
-                              height: h * 0.07,
-                              child: Text(
-                                widget.email,
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                email,
                                 style: TextStyle(
                                     fontSize: 22,
-                                    color: Theme.of(context).accentColor),
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
                               ),
-                            ),
-                            SizedBox(
-                              width: w * 0.3,
-                              height: h * 0.04,
-                              child: ElevatedButton(
-                                style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
+                              Container(
+                                margin: const EdgeInsets.only(bottom: 45),
+                                width: 110,
+                                height: 35,
+                                child: ElevatedButton(
+                                  style: ButtonStyle(
+                                    shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(18),
+                                      ),
                                     ),
                                   ),
+                                  onPressed: () {
+                                    // Navigator.push(
+                                    //     context,
+                                    //     MaterialPageRoute(
+                                    //         builder: (context) =>
+                                    //             const FireStore()));
+                                  },
+                                  child: const Text(
+                                    'ລົບບັນຊີ',
+                                    style: TextStyle(
+                                        fontFamily: 'Phetsarath',
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 17),
+                                  ),
                                 ),
-                                onPressed: () {},
-                                child: const Text(
-                                  'ລົບບັນຊີ',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

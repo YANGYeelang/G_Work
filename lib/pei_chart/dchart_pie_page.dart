@@ -8,10 +8,10 @@ class DChartPiePage extends StatefulWidget {
   State<DChartPiePage> createState() => _DChartPiePageState();
 }
 
-final data = [
-  {'item': 'apple', 'percent': 30},
-  {'item': 'banana', 'percent': 50},
-  {'item': 'bird', 'percent': 20},
+List<Map<String, dynamic>> data = [
+  {'id': 1, 'item': 'apple', 'percent': 30, 'amount': '300000'},
+  {'id': 2, 'item': 'banana', 'percent': 50, 'amount': '300000'},
+  {'id': 3, 'item': 'bird', 'percent': 20, 'amount': '300000'},
 ];
 
 class _DChartPiePageState extends State<DChartPiePage> {
@@ -22,7 +22,6 @@ class _DChartPiePageState extends State<DChartPiePage> {
     return Expanded(
       child: Container(
         margin: const EdgeInsets.only(top: 10),
-        padding: const EdgeInsets.only(top: 30),
         decoration: BoxDecoration(
           color: Theme.of(context).buttonColor,
           border: const Border(
@@ -30,339 +29,316 @@ class _DChartPiePageState extends State<DChartPiePage> {
                 BorderSide(color: Color.fromARGB(255, 201, 200, 200), width: 3),
           ),
         ),
-        child: SizedBox(
-          height: h * 0.5,
-          width: w,
-          child: Column(
-            children: [
-              AspectRatio(
-                aspectRatio: 17 / 9,
-                child: DChartPie(
-                  data: data.map((e) {
-                    return {'domain': e['item'], 'measure': e['percent']};
-                  }).toList(),
-                  fillColor: ((pieData, index) {
-                    switch (pieData['domain']) {
-                      case 'apple':
-                        return Colors.red;
-                      case 'banana':
-                        return Colors.blue;
-                      default:
-                        return Colors.green;
-                    }
-                  }),
-                  labelColor: Theme.of(context).indicatorColor,
-                  labelPosition: PieLabelPosition.outside,
-                  labelFontSize: 14,
-                  labelLineColor: Colors.purple,
-                  labelLineThickness: 1,
-                  labelLinelength: 20,
-                  labelPadding: 2,
-                  showLabelLine: false,
-                  strokeWidth: 1,
-                  donutWidth: 35,
-                  pieLabel: (Map<dynamic, dynamic> pieData, int? index) {
-                    return pieData['domain'] +
-                        ":\n" +
-                        pieData['measure'].toString() +
-                        '%';
-                  },
+        child: SingleChildScrollView(
+          child: SizedBox(
+            height: h * 0.71,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 40),
+                  child: AspectRatio(
+                    aspectRatio: 17 / 9,
+                    child: DChartPie(
+                      data: data.map((e) {
+                        return {'domain': e['item'], 'measure': e['percent']};
+                      }).toList(),
+                      fillColor: ((pieData, index) {
+                        switch (pieData['domain']) {
+                          case 'apple':
+                            return Colors.red;
+                          case 'banana':
+                            return Colors.blue;
+                          default:
+                            return Colors.green;
+                        }
+                      }),
+                      labelColor: Theme.of(context).indicatorColor,
+                      labelPosition: PieLabelPosition.outside,
+                      labelFontSize: 14,
+                      labelLineColor: Colors.purple,
+                      labelLineThickness: 1,
+                      labelLinelength: 20,
+                      labelPadding: 2,
+                      showLabelLine: false,
+                      strokeWidth: 1,
+                      donutWidth: 35,
+                      pieLabel: (Map<dynamic, dynamic> pieData, int? index) {
+                        return pieData['domain'] +
+                            ":\n" +
+                            pieData['measure'].toString() +
+                            '%';
+                      },
+                    ),
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          'banana:',
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text('apple:', style: TextStyle(fontSize: 17)),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text('bird:', style: TextStyle(fontSize: 17)),
-                      ],
-                    ),
-                    const SizedBox(
-                      width: 60,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          '50%',
-                          style: TextStyle(
-                              fontSize: 17,
-                              color: Color.fromARGB(255, 142, 230, 231)),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          '30%',
-                          style: TextStyle(
-                              fontSize: 17,
-                              color: Color.fromARGB(255, 142, 230, 231)),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          '20%',
-                          style: TextStyle(
-                              fontSize: 17,
-                              color: Color.fromARGB(255, 142, 230, 231)),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      width: 60,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          '500.000K',
-                          style: TextStyle(fontSize: 17, color: Colors.green),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          '300.000K',
-                          style: TextStyle(fontSize: 17, color: Colors.red),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          '200.000K',
-                          style: TextStyle(fontSize: 17, color: Colors.red),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(top: 40),
-                    width: w * 0.94,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Theme.of(context).accentColor, width: 2)),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                SizedBox(
+                  height: h * 0.13,
+                  width: w,
+                  child: ListView.builder(
+                    padding: EdgeInsets.only(top: 0),
+                    itemCount: data.length,
+                    itemBuilder: (context, index) => Container(
+                      key: ValueKey(data[index]['id']),
+                      height: 36,
+                      child: ListTile(
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 70,
-                                  width: 124,
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context).disabledColor,
-                                  ),
-                                  child: const Center(
-                                    child: Text(
-                                      "ລາຍການທັງໝົດ\nຂອງບັນຊີ",
-                                      style: TextStyle(
-                                          fontSize: 16, letterSpacing: -0.8),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                const Text(
-                                  "ຈໍານວນລາຍການ",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                const Text(
-                                  "ຄີດເປັນເປີເຊັນ (%)",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                const Text(
-                                  "ປ່ຽນແປງ",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ],
+                            Text(
+                              data[index]['item'],
+                              style: const TextStyle(
+                                fontSize: 17,
+                              ),
                             ),
-                            const SizedBox(
-                              width: 6,
+                            Text(
+                              '${data[index]['percent'].toString()}%',
+                              style: const TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w300,
+                                  color: Color.fromARGB(255, 75, 172, 175),
+                                  letterSpacing: -0.8),
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  height: 70,
-                                  width: 80,
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context).disabledColor,
-                                  ),
-                                  child: const Center(
-                                    child: Text(
-                                      'ຮັບ',
-                                      style: TextStyle(
-                                          fontSize: 16, letterSpacing: -0.8),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                const Text(
-                                  "1",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.green),
-                                ),
-                                const SizedBox(
-                                  height: 26,
-                                ),
-                                const Text(
-                                  "100%",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.green),
-                                ),
-                                const SizedBox(
-                                  height: 26,
-                                ),
-                                const Text(
-                                  "0%",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.green),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              width: 6,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  height: 70,
-                                  width: 80,
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context).disabledColor,
-                                  ),
-                                  child: const Center(
-                                    child: Text(
-                                      'ຈ່າຍ',
-                                      style: TextStyle(
-                                          fontSize: 16, letterSpacing: -0.8),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                const Text(
-                                  "1",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.red),
-                                ),
-                                const SizedBox(
-                                  height: 26,
-                                ),
-                                const Text(
-                                  "100%",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.red),
-                                ),
-                                const SizedBox(
-                                  height: 26,
-                                ),
-                                const Text(
-                                  "0%",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.red),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              width: 6,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  height: 70,
-                                  width: 80,
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context).disabledColor,
-                                  ),
-                                  child: const Center(
-                                    child: Text(
-                                      'ລວມ',
-                                      style: TextStyle(
-                                          fontSize: 16, letterSpacing: -0.8),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                const Text(
-                                  "3",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: Color.fromARGB(255, 75, 172, 175)),
-                                ),
-                                const SizedBox(
-                                  height: 26,
-                                ),
-                                const Text(
-                                  "100%",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: Color.fromARGB(255, 75, 172, 175)),
-                                ),
-                                const SizedBox(
-                                  height: 26,
-                                ),
-                                const Text(
-                                  "0%",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: Color.fromARGB(255, 75, 172, 175)),
-                                ),
-                              ],
+                            Text(
+                              '${data[index]['amount'].toString()} kip',
+                              style: const TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.green),
                             ),
                           ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ],
-              )
-            ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: w * 0.94,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            color: Theme.of(context).accentColor, width: 2),
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 70,
+                                    width: 124,
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context).disabledColor,
+                                    ),
+                                    child: const Center(
+                                      child: Text(
+                                        "ລາຍການທັງໝົດ\nຂອງບັນຊີ",
+                                        style: TextStyle(
+                                            fontFamily: 'Phetsarath',
+                                            fontSize: 16,
+                                            letterSpacing: -0.1),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 18,
+                                  ),
+                                  const Text(
+                                    "ຈໍານວນລາຍການ",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: 'Phetsarath',
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 6,
+                                  ),
+                                  const Text(
+                                    "ຄີດເປັນເປີເຊັນ (%)",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: 'Phetsarath',
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 6,
+                                  ),
+                                  const Text(
+                                    "ປ່ຽນແປງ",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: 'Phetsarath',
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 17,
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height: 70,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context).disabledColor,
+                                    ),
+                                    child: const Center(
+                                      child: Text(
+                                        'ຮັບ',
+                                        style: TextStyle(
+                                            fontFamily: 'Phetsarath',
+                                            fontSize: 16,
+                                            letterSpacing: -0.1),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 19,
+                                  ),
+                                  const Text(
+                                    "1",
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.green),
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  const Text(
+                                    "100%",
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.green),
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  const Text(
+                                    "0%",
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.green),
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  )
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height: 70,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context).disabledColor,
+                                    ),
+                                    child: const Center(
+                                      child: Text(
+                                        'ຈ່າຍ',
+                                        style: TextStyle(
+                                            fontFamily: 'Phetsarath',
+                                            fontSize: 16,
+                                            letterSpacing: -0.1),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 19,
+                                  ),
+                                  const Text(
+                                    "1",
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.red),
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  const Text(
+                                    "100%",
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.red),
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  const Text(
+                                    "0%",
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.red),
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height: 70,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context).disabledColor,
+                                    ),
+                                    child: const Center(
+                                      child: Text(
+                                        'ລວມ',
+                                        style: TextStyle(
+                                            fontFamily: 'Phetsarath',
+                                            fontSize: 16,
+                                            letterSpacing: -0.1),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 19,
+                                  ),
+                                  const Text(
+                                    "3",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color:
+                                            Color.fromARGB(255, 75, 172, 175)),
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  const Text(
+                                    "100%",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color:
+                                            Color.fromARGB(255, 75, 172, 175)),
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  const Text(
+                                    "0%",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color:
+                                            Color.fromARGB(255, 75, 172, 175)),
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

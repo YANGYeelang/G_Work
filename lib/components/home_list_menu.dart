@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get_auth/components/data_class.dart';
 import 'package:get_auth/components/themes.dart';
+import 'package:provider/provider.dart';
 
 class ListMenuScreen extends StatefulWidget {
   ListMenuScreen();
 
   @override
+  // ignore: library_private_types_in_public_api
   _ListMenuScreenState createState() => _ListMenuScreenState();
 }
 
@@ -15,7 +18,6 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-    var S = MediaQuery.of(context).size;
 
     return Container(
       color: Theme.of(context).highlightColor,
@@ -25,11 +27,11 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
           children: [
             Expanded(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  SizedBox(width: S.width / 17),
                   InkWell(
                     onTap: () {
+                      Provider.of<DataClass>(context, listen: false).alllist(1);
                       setState(() {
                         countItems = 0;
                       });
@@ -40,11 +42,13 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                         Text(
                           'ລ່າສຸດ',
                           style: TextStyle(
-                              color: countItems == 0
-                                  ? Color.fromARGB(255, 110, 100, 237)
-                                  : Theme.of(context).accentColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
+                            color: countItems == 0
+                                ? Theme.of(context).canvasColor
+                                : Theme.of(context).accentColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            fontFamily: 'Phetsarath',
+                          ),
                         ),
                         const SizedBox(height: 1),
                         Visibility(
@@ -52,15 +56,15 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                           child: Container(
                             height: 2,
                             width: w * 0.09,
-                            color: Color.fromARGB(255, 110, 100, 237),
+                            color: Theme.of(context).canvasColor,
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(width: S.width / 14),
                   InkWell(
                     onTap: () {
+                      Provider.of<DataClass>(context, listen: false).alllist(2);
                       setState(() {
                         countItems = 1;
                       });
@@ -71,11 +75,13 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                         Text(
                           'ວັນ',
                           style: TextStyle(
-                              color: countItems == 1
-                                  ? const Color.fromARGB(255, 110, 100, 237)
-                                  : Theme.of(context).accentColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
+                            color: countItems == 1
+                                ? Theme.of(context).canvasColor
+                                : Theme.of(context).accentColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            fontFamily: 'Phetsarath',
+                          ),
                         ),
                         const SizedBox(height: 1),
                         Visibility(
@@ -83,15 +89,15 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                           child: Container(
                             height: 2,
                             width: w * 0.05,
-                            color: const Color.fromARGB(255, 110, 100, 237),
+                            color: Theme.of(context).canvasColor,
                           ),
                         )
                       ],
                     ),
                   ),
-                  SizedBox(width: S.width / 14),
                   InkWell(
                     onTap: () {
+                      Provider.of<DataClass>(context, listen: false).alllist(3);
                       setState(() {
                         countItems = 2;
                       });
@@ -102,11 +108,13 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                         Text(
                           'ອາທິດ',
                           style: TextStyle(
-                              color: countItems == 2
-                                  ? const Color.fromARGB(255, 110, 100, 237)
-                                  : Theme.of(context).accentColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
+                            color: countItems == 2
+                                ? Theme.of(context).canvasColor
+                                : Theme.of(context).accentColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            fontFamily: 'Phetsarath',
+                          ),
                         ),
                         const SizedBox(height: 1),
                         Visibility(
@@ -114,15 +122,15 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                           child: Container(
                             height: 2,
                             width: w * 0.1,
-                            color: const Color.fromARGB(255, 110, 100, 237),
+                            color: Theme.of(context).canvasColor,
                           ),
                         )
                       ],
                     ),
                   ),
-                  SizedBox(width: S.width / 14),
                   InkWell(
                     onTap: () {
+                      Provider.of<DataClass>(context, listen: false).alllist(4);
                       setState(() {
                         countItems = 3;
                       });
@@ -133,11 +141,13 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                         Text(
                           'ເດືອນ',
                           style: TextStyle(
-                              color: countItems == 3
-                                  ? const Color.fromARGB(255, 110, 100, 237)
-                                  : Theme.of(context).accentColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
+                            color: countItems == 3
+                                ? Theme.of(context).canvasColor
+                                : Theme.of(context).accentColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            fontFamily: 'Phetsarath',
+                          ),
                         ),
                         const SizedBox(height: 1),
                         Visibility(
@@ -145,15 +155,15 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                           child: Container(
                             height: 2,
                             width: w * 0.09,
-                            color: const Color.fromARGB(255, 110, 100, 237),
+                            color: Theme.of(context).canvasColor,
                           ),
                         )
                       ],
                     ),
                   ),
-                  SizedBox(width: S.width / 14),
                   InkWell(
                     onTap: () {
+                      Provider.of<DataClass>(context, listen: false).alllist(5);
                       setState(() {
                         countItems = 4;
                       });
@@ -164,11 +174,13 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                         Text(
                           'ປີ',
                           style: TextStyle(
-                              color: countItems == 4
-                                  ? const Color.fromARGB(255, 110, 100, 237)
-                                  : Theme.of(context).accentColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
+                            color: countItems == 4
+                                ? Theme.of(context).canvasColor
+                                : Theme.of(context).accentColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            fontFamily: 'Phetsarath',
+                          ),
                         ),
                         const SizedBox(height: 1),
                         Visibility(
@@ -176,15 +188,15 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                           child: Container(
                             height: 2,
                             width: w * 0.03,
-                            color: const Color.fromARGB(255, 110, 100, 237),
+                            color: Theme.of(context).canvasColor,
                           ),
                         )
                       ],
                     ),
                   ),
-                  SizedBox(width: S.width / 14),
                   InkWell(
                     onTap: () {
+                      Provider.of<DataClass>(context, listen: false).alllist(0);
                       setState(() {
                         countItems = 5;
                       });
@@ -195,11 +207,13 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                         Text(
                           'ທັງໝົດ',
                           style: TextStyle(
-                              color: countItems == 5
-                                  ? const Color.fromARGB(255, 110, 100, 237)
-                                  : Theme.of(context).accentColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
+                            color: countItems == 5
+                                ? Theme.of(context).canvasColor
+                                : Theme.of(context).accentColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            fontFamily: 'Phetsarath',
+                          ),
                         ),
                         const SizedBox(height: 1),
                         Visibility(
@@ -207,7 +221,7 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                           child: Container(
                             height: 2,
                             width: w * 0.12,
-                            color: const Color.fromARGB(255, 110, 100, 237),
+                            color: Theme.of(context).canvasColor,
                           ),
                         )
                       ],

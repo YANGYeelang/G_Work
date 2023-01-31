@@ -21,13 +21,15 @@ class _AboutAppState extends State<AboutApp> {
             Row(
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: 10),
+                  margin: const EdgeInsets.only(left: 10),
                   child: IconButton(
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const About()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const About(),
+                        ),
+                      );
                     },
                     icon: Icon(
                       Icons.arrow_back,
@@ -43,20 +45,27 @@ class _AboutAppState extends State<AboutApp> {
                   height: 45,
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: Text(
-                      'ກ່ຽວກັບແອັບ',
-                      style: TextStyle(fontSize: 18, letterSpacing: -0.8),
-                    ),
                     style: ButtonStyle(
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(27)))),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(27),
+                        ),
+                      ),
+                    ),
+                    child: const Text(
+                      'ກ່ຽວກັບແອັບ',
+                      style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          fontSize: 18,
+                          letterSpacing: -0.2),
+                    ),
                   ),
                 ),
               ],
             ),
             Center(
               child: Container(
-                margin: EdgeInsets.only(top: 60),
+                margin: const EdgeInsets.only(top: 60),
                 width: w * 0.9,
                 height: h * 0.4,
                 decoration: BoxDecoration(
@@ -70,7 +79,10 @@ class _AboutAppState extends State<AboutApp> {
                       padding: EdgeInsets.only(top: 40, left: 15),
                       child: Text(
                         '* ຈຸດປະສົງຂອງແອັບ*',
-                        style: TextStyle(fontSize: 19, letterSpacing: -0.8),
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 18,
+                            letterSpacing: -0.2),
                       ),
                     ),
                     Padding(
@@ -82,7 +94,10 @@ class _AboutAppState extends State<AboutApp> {
                           'ເພື່ອໃຫ້ຮູ້ໃນແຕ່ລະມື້ມີເງີນເຂົ້້າ - ລາຍຈ່າຍ ເທົ່າໃດ ແລະ ເສຍຄ່າຈ່າຍໄປກັບຫຍັງແດ່ໃນແຕ່ລະມື້'
                           'ເພາະໃນປັດຈຸບັນເຮົາຈະມານັ່ງຈົດໃສ່ເຈ້ຍມັນກໍອາດຈະບໍສະດວກໃນການພົບພາໄປໃນສະຖານມີຕ່າງໆ'
                           ' ຍ້ອນເຫດຜົນນີ້ເຮົາຈື່ງສ້າງແອັບນີ້ຂື້ນມາ',
-                          style: TextStyle(fontSize: 16, letterSpacing: -0.5)),
+                          style: TextStyle(
+                              fontFamily: 'Phetsarath',
+                              fontSize: 14.5,
+                              letterSpacing: -0.1)),
                     ),
                   ],
                 ),

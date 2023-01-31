@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
 class NotifiScreeen extends StatefulWidget {
@@ -8,8 +9,7 @@ class NotifiScreeen extends StatefulWidget {
 }
 
 class _NotifiScreeenState extends State<NotifiScreeen> {
-  @override
-  List<Map<String, dynamic>> _allList = [
+  final List<Map<String, dynamic>> _allList = [
     {
       'id': 1,
       'item': 'ລາຍການ',
@@ -54,29 +54,35 @@ class _NotifiScreeenState extends State<NotifiScreeen> {
     }
   ];
 
+  late int notify = _allList.length;
+  @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
+          // ignore: deprecated_member_use
           color: Theme.of(context).buttonColor,
           height: h,
           width: w,
           margin: const EdgeInsets.only(top: 40),
-          padding: EdgeInsets.only(top: 15),
+          padding: const EdgeInsets.only(top: 15),
           child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: const [
-                  Icon(
-                    Icons.notifications,
-                    size: 50,
-                    // textDirection: ,
+                children: [
+                  Badge(
+                    badgeContent: Text(notify.toString()),
+                    padding: const EdgeInsets.all(5),
+                    child: const Icon(
+                      Icons.notifications,
+                      size: 50,
+                      // textDirection: ,
+                    ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 40,
                   )
                 ],
@@ -108,15 +114,13 @@ class _NotifiScreeenState extends State<NotifiScreeen> {
                                   width: 2))),
                       child: ListTile(
                         leading: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               _allList[index]['datetime'],
                               style: const TextStyle(
                                 fontSize: 18,
                               ),
-                            ),
-                            const SizedBox(
-                              height: 5,
                             ),
                             Text(
                               _allList[index]['time'],
@@ -130,6 +134,7 @@ class _NotifiScreeenState extends State<NotifiScreeen> {
                             Text(
                               _allList[index]['item'],
                               style: const TextStyle(
+                                fontFamily: 'Phetsarath',
                                 fontSize: 24,
                                 fontWeight: FontWeight.w500,
                                 letterSpacing: -0.8,

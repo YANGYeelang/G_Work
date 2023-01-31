@@ -46,13 +46,16 @@ class _AboutUsState extends State<AboutUs> {
                   height: h * 0.1,
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: Text(
-                      'ກ່ຽວກັບພວກເຮົາ',
-                      style: TextStyle(fontSize: 17, letterSpacing: -1),
-                    ),
                     style: ButtonStyle(
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)))),
+                    child: const Text(
+                      'ກ່ຽວກັບພວກເຮົາ',
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontFamily: 'Phetsarath',
+                          letterSpacing: -0.3),
+                    ),
                   ),
                 ),
               ],
@@ -63,40 +66,34 @@ class _AboutUsState extends State<AboutUs> {
           ),
           Column(
             children: [
-              Container(
-                height: 110,
-                width: 110,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(100),
-                  image: const DecorationImage(
-                      image: AssetImage('assets/images/welcome.png'),
-                      fit: BoxFit.cover),
-                ),
+              const CircleAvatar(
+                radius: 55,
+                backgroundImage: AssetImage('assets/images/Savath.jpg'),
               ),
-              Container(
-                child: Column(
-                  children: [
-                    const Text(
-                      'ປອ. ສະຫວາດ ໄຊປະດິດ',
+              Column(
+                children: [
+                  const Text(
+                    'ປອ. ສະຫວາດ ໄຊປະດິດ',
+                    style: TextStyle(
+                        fontFamily: 'Phetsarath',
+                        fontSize: 17,
+                        letterSpacing: -0.3,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      text: 'ເພີ່ມເຕີມ...',
                       style: TextStyle(
-                          fontSize: 17,
-                          letterSpacing: -1,
-                          fontWeight: FontWeight.w500),
+                          fontFamily: 'Phetsarath',
+                          color: Theme.of(context).accentColor),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () => Get.to(() => const TeamInfo()),
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    RichText(
-                      text: TextSpan(
-                        text: 'ເພີ່ມເຕີມ...',
-                        style: TextStyle(color: Theme.of(context).accentColor),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () => Get.to(() => const TeamInfo()),
-                      ),
-                    )
-                  ],
-                ),
+                  )
+                ],
               ),
             ],
           ),
@@ -108,48 +105,42 @@ class _AboutUsState extends State<AboutUs> {
             children: [
               Column(
                 children: [
-                  Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(100),
-                      image: const DecorationImage(
-                          image: AssetImage('assets/images/welcome.png'),
-                          fit: BoxFit.cover),
-                    ),
+                  const CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage('assets/images/phet.jpg'),
                   ),
-                  Container(
-                    child: Column(
-                      children: [
-                        const Text(
-                          'ທ. ເພັດຕາວັນ ບົວແພງ',
+                  Column(
+                    children: [
+                      const Text(
+                        'ທ. ເພັດຕາວັນ ບົວແພງ',
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 16,
+                            letterSpacing: -0.3,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      const Text(
+                        'ນັກສືກສາ ຫ້ອງ 3IT2',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontFamily: 'Phetsarath',
+                          letterSpacing: -0.3,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          text: 'ເພີ່ມເຕີມ...',
                           style: TextStyle(
-                              fontSize: 16,
-                              letterSpacing: -1,
-                              fontWeight: FontWeight.w500),
+                              fontFamily: 'Phetsarath',
+                              color: Theme.of(context).accentColor),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => Get.to(() => const TeamInfo1()),
                         ),
-                        const Text(
-                          'ນັກສືກສາ ຫ້ອງ 3IT2',
-                          style: TextStyle(
-                            fontSize: 14,
-                            letterSpacing: -0.7,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            text: 'ເພີ່ມເຕີມ...',
-                            style:
-                                TextStyle(color: Theme.of(context).accentColor),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () => Get.to(() => const TeamInfo1()),
-                          ),
-                        )
-                      ],
-                    ),
+                      )
+                    ],
                   ),
                 ],
               ),
@@ -158,48 +149,42 @@ class _AboutUsState extends State<AboutUs> {
               ),
               Column(
                 children: [
-                  Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(100),
-                      image: const DecorationImage(
-                          image: AssetImage('assets/images/welcome.png'),
-                          fit: BoxFit.cover),
-                    ),
+                  const CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage('assets/images/welcome.png'),
                   ),
-                  Container(
-                    child: Column(
-                      children: [
-                        const Text(
-                          'ທ. ຢີລ່າງຢ່າງ ໜູຊົວຢ່າງ',
+                  Column(
+                    children: [
+                      const Text(
+                        'ທ. ຢີລ່າງຢ່າງ ໜູຊົວຢ່າງ',
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 16,
+                            letterSpacing: -0.3,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      const Text(
+                        'ນັກສືກສາ ຫ້ອງ 3IT2',
+                        style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          fontSize: 14,
+                          letterSpacing: -0.3,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          text: 'ເພີ່ມເຕີມ...',
                           style: TextStyle(
-                              fontSize: 16,
-                              letterSpacing: -1,
-                              fontWeight: FontWeight.w500),
+                              fontFamily: 'Phetsarath',
+                              color: Theme.of(context).accentColor),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => Get.to(() => const TeamInfo2()),
                         ),
-                        const Text(
-                          'ນັກສືກສາ ຫ້ອງ 3IT2',
-                          style: TextStyle(
-                            fontSize: 14,
-                            letterSpacing: -0.7,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            text: 'ເພີ່ມເຕີມ...',
-                            style:
-                                TextStyle(color: Theme.of(context).accentColor),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () => Get.to(() => const TeamInfo2()),
-                          ),
-                        )
-                      ],
-                    ),
+                      )
+                    ],
                   ),
                 ],
               ),
@@ -213,48 +198,41 @@ class _AboutUsState extends State<AboutUs> {
             children: [
               Column(
                 children: [
-                  Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(100),
-                      image: const DecorationImage(
-                          image: AssetImage('assets/images/welcome.png'),
-                          fit: BoxFit.cover),
-                    ),
+                  const CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage('assets/images/pou.jpg'),
                   ),
-                  Container(
-                    child: Column(
-                      children: [
-                        const Text(
-                          'ນ. ພຸດທະສອນ ສອນທະລາ',
+                  Column(
+                    children: [
+                      const Text(
+                        'ນ. ພຸດທະສອນ ສອນທະລາ',
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 16,
+                            letterSpacing: -0.3,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      const Text(
+                        'ນັກສືກສາ ຫ້ອງ 3IT2',
+                        style: TextStyle(
+                          fontSize: 14,
+                          letterSpacing: -0.7,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          text: 'ເພີ່ມເຕີມ...',
                           style: TextStyle(
-                              fontSize: 16,
-                              letterSpacing: -1,
-                              fontWeight: FontWeight.w500),
+                              fontFamily: 'Phetsarath',
+                              color: Theme.of(context).accentColor),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => Get.to(() => const TeamInfo3()),
                         ),
-                        const Text(
-                          'ນັກສືກສາ ຫ້ອງ 3IT2',
-                          style: TextStyle(
-                            fontSize: 14,
-                            letterSpacing: -0.7,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            text: 'ເພີ່ມເຕີມ...',
-                            style:
-                                TextStyle(color: Theme.of(context).accentColor),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () => Get.to(() => const TeamInfo3()),
-                          ),
-                        )
-                      ],
-                    ),
+                      )
+                    ],
                   ),
                 ],
               ),
@@ -263,48 +241,42 @@ class _AboutUsState extends State<AboutUs> {
               ),
               Column(
                 children: [
-                  Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(100),
-                      image: const DecorationImage(
-                          image: AssetImage('assets/images/welcome.png'),
-                          fit: BoxFit.cover),
-                    ),
+                  const CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage('assets/images/sao.jpeg'),
                   ),
-                  Container(
-                    child: Column(
-                      children: [
-                        const Text(
-                          'ນ. ບົວສະຫວັນ ໄຊຍະລາດ',
+                  Column(
+                    children: [
+                      const Text(
+                        'ນ. ບົວສະຫວັນ ໄຊຍະລາດ',
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 16,
+                            letterSpacing: -0.3,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      const Text(
+                        'ນັກສືກສາ ຫ້ອງ 3IT2',
+                        style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          fontSize: 14,
+                          letterSpacing: -0.3,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          text: 'ເພີ່ມເຕີມ...',
                           style: TextStyle(
-                              fontSize: 16,
-                              letterSpacing: -1,
-                              fontWeight: FontWeight.w500),
+                              fontFamily: 'Phetsarath',
+                              color: Theme.of(context).accentColor),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => Get.to(() => const TeamInfo4()),
                         ),
-                        const Text(
-                          'ນັກສືກສາ ຫ້ອງ 3IT2',
-                          style: TextStyle(
-                            fontSize: 14,
-                            letterSpacing: -0.7,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            text: 'ເພີ່ມເຕີມ...',
-                            style:
-                                TextStyle(color: Theme.of(context).accentColor),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () => Get.to(() => const TeamInfo4()),
-                          ),
-                        )
-                      ],
-                    ),
+                      )
+                    ],
                   ),
                 ],
               ),

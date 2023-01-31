@@ -2,9 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_auth/screens/home_screen.dart';
+import 'package:get_auth/screens/init_amount_screen.dart';
+import 'package:get_auth/screens/init_screen.dart';
 import 'package:get_auth/screens/main_screen.dart';
 import 'package:get_auth/screens/signin_screen.dart';
-import 'package:get_auth/screens/log_out_screen.dart';
+import 'package:get_auth/screens/sign_out_screen.dart';
 
 class AuthController extends GetxController {
   //AuthController.instance
@@ -25,11 +27,13 @@ class AuthController extends GetxController {
   _initialScreen(User? user) {
     if (user == null) {
       print('Login Page');
-      Get.offAll(() => SignInPage());
+      Get.offAll(() => const InitScreen());
+      // Get.offAll(() => SignInPage());
     } else {
-      Get.offAll(() => MainScreen(
-            navCurrentIndex: '0',
-          ));
+      Get.offAll(() => const InitAmount());
+      // Get.offAll(() => MainScreen(
+      //       navCurrentIndex: '0',
+      //     ));
       // Get.offAll(() => WelcomeScreen(email: user.email!));
     }
   }

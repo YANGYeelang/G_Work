@@ -35,7 +35,7 @@ class _MImpDetailState extends State<MImpDetail> {
 
     return Container(
       width: w,
-      height: h * 3,
+      height: h * 1.7,
       decoration: BoxDecoration(
         color: Theme.of(context).buttonColor,
         borderRadius: const BorderRadius.only(
@@ -43,145 +43,156 @@ class _MImpDetailState extends State<MImpDetail> {
           topRight: Radius.circular(35),
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(
-            height: 100,
-          ),
-          Container(
-            height: h * 0.18,
-            width: w * 0.75,
-            decoration: BoxDecoration(
-                color: Theme.of(context).disabledColor,
-                borderRadius: BorderRadius.circular(17)),
-            child: Center(
-              child: DropdownButton<String>(
-                // underline: ,
-                dropdownColor: Theme.of(context).buttonColor,
-                borderRadius: BorderRadius.circular(20),
-                value: value,
-                items: items.map(buildMenuItem).toList(),
-                onChanged: (value) => setState(() {
-                  this.value = value;
-                }),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Container(
-            height: h * 0.18,
-            width: w * 0.75,
-            decoration: BoxDecoration(
-                color: Theme.of(context).disabledColor,
-                borderRadius: BorderRadius.circular(17)),
-            child: const Center(
-              child: Text(
-                'ເພີ່ມລາຍຮັບ',
-                style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: -0.7),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Container(
-            height: h * 0.18,
-            width: w * 0.75,
-            decoration: BoxDecoration(
-                color: Theme.of(context).disabledColor,
-                borderRadius: BorderRadius.circular(17)),
-            child: const Center(
-              child: Text(
-                'ວັນ/ເວລາ/ປີ',
-                style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: -0.7),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Container(
-            height: h * 0.18,
-            width: w * 0.75,
-            decoration: BoxDecoration(
-                color: Theme.of(context).disabledColor,
-                borderRadius: BorderRadius.circular(17)),
-            child: const Center(
-              child: Text(
-                'ລາຍລະອຽດເພີ່ມເຕີມ',
-                style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: -0.7),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+      child: Center(
+        child: SizedBox(
+          height: h * 1.2,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SizedBox(
-                width: 100,
-                height: 47,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'ຍົກເລີກ',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: const MaterialStatePropertyAll(
-                      Color.fromARGB(255, 217, 96, 85),
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
+              Container(
+                height: h * 0.18,
+                width: w * 0.75,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).disabledColor,
+                    borderRadius: BorderRadius.circular(17)),
+                child: Center(
+                  child: DropdownButton<String>(
+                    hint: Center(
+                      child: Text(
+                        'ເລືອກໝວດ',
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).indicatorColor,
+                            fontSize: 27,
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: -0.3),
                       ),
                     ),
+                    dropdownColor: Theme.of(context).buttonColor,
+                    borderRadius: BorderRadius.circular(20),
+                    value: value,
+                    items: items.map(buildMenuItem).toList(),
+                    onChanged: (value) => setState(() {
+                      this.value = value;
+                    }),
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 25,
-              ),
-              SizedBox(
-                width: 100,
-                height: 47,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SavedScreen()));
-                  },
+              Container(
+                height: h * 0.18,
+                width: w * 0.75,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).disabledColor,
+                    borderRadius: BorderRadius.circular(17)),
+                child: const Center(
                   child: Text(
-                    'ບັນທືກ',
-                    style: TextStyle(color: Colors.black, fontSize: 15),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: const MaterialStatePropertyAll(
-                      Color.fromARGB(255, 119, 170, 100),
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
+                    'ເພີ່ມລາຍຮັບ',
+                    style: TextStyle(
+                        fontFamily: 'Phetsarath',
+                        fontSize: 27,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: -0.7),
                   ),
                 ),
               ),
+              Container(
+                height: h * 0.18,
+                width: w * 0.75,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).disabledColor,
+                    borderRadius: BorderRadius.circular(17)),
+                child: const Center(
+                  child: Text(
+                    'ວັນ/ເວລາ/ປີ',
+                    style: TextStyle(
+                        fontFamily: 'Phetsarath',
+                        fontSize: 27,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: -0.7),
+                  ),
+                ),
+              ),
+              Container(
+                height: h * 0.18,
+                width: w * 0.75,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).disabledColor,
+                    borderRadius: BorderRadius.circular(17)),
+                child: const Center(
+                  child: Text(
+                    'ລາຍລະອຽດເພີ່ມເຕີມ',
+                    style: TextStyle(
+                        fontFamily: 'Phetsarath',
+                        fontSize: 27,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: -0.7),
+                  ),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 100,
+                    height: 47,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                        backgroundColor: const MaterialStatePropertyAll(
+                          Color.fromARGB(255, 217, 96, 85),
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                      ),
+                      child: const Text(
+                        'ຍົກເລີກ',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Phetsarath',
+                            fontSize: 16),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 25,
+                  ),
+                  SizedBox(
+                    width: 100,
+                    height: 47,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SavedScreen()));
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: const MaterialStatePropertyAll(
+                          Color.fromARGB(255, 119, 170, 100),
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                      ),
+                      child: const Text(
+                        'ບັນທືກ',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Phetsarath',
+                            fontSize: 16),
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
-          )
-        ],
+          ),
+        ),
       ),
     );
   }
@@ -196,11 +207,12 @@ class PImpDetail extends StatefulWidget {
 
 class _PImpDetailState extends State<PImpDetail> {
   final items = [
-    'ອາຫານ/ເຄື່ອງເດີ່ມ',
     'ເຄື່ອງໃຊ້',
     'ຄ່ານໍ້າ/ໄຟ',
     'ສຸຂະພາບ',
     'ທີ່ພັກ',
+    'ອາຫານ',
+    'ເຄື່ອງເດີ່ມ',
     'ການຮຽນ',
     'ບັນເທີງ',
     'ເດີນທາງ',
@@ -222,7 +234,7 @@ class _PImpDetailState extends State<PImpDetail> {
 
     return Container(
       width: w,
-      height: h * 3,
+      height: h * 1.7,
       decoration: BoxDecoration(
         color: Theme.of(context).buttonColor,
         borderRadius: const BorderRadius.only(
@@ -230,144 +242,156 @@ class _PImpDetailState extends State<PImpDetail> {
           topRight: Radius.circular(35),
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(
-            height: 100,
-          ),
-          Container(
-            height: h * 0.18,
-            width: w * 0.75,
-            decoration: BoxDecoration(
-                color: Theme.of(context).disabledColor,
-                borderRadius: BorderRadius.circular(17)),
-            child: Center(
-              child: DropdownButton<String>(
-                dropdownColor: Theme.of(context).buttonColor,
-                borderRadius: BorderRadius.circular(20),
-                value: value,
-                items: items.map(buildMenuItem).toList(),
-                onChanged: (value) => setState(() {
-                  this.value = value;
-                }),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Container(
-            height: h * 0.18,
-            width: w * 0.75,
-            decoration: BoxDecoration(
-                color: Theme.of(context).disabledColor,
-                borderRadius: BorderRadius.circular(17)),
-            child: const Center(
-              child: Text(
-                'ເພີ່ມລາຍຈ່າຍ',
-                style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: -0.7),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Container(
-            height: h * 0.18,
-            width: w * 0.75,
-            decoration: BoxDecoration(
-                color: Theme.of(context).disabledColor,
-                borderRadius: BorderRadius.circular(17)),
-            child: const Center(
-              child: Text(
-                'ວັນ/ເວລາ/ປີ',
-                style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: -0.7),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Container(
-            height: h * 0.18,
-            width: w * 0.75,
-            decoration: BoxDecoration(
-                color: Theme.of(context).disabledColor,
-                borderRadius: BorderRadius.circular(17)),
-            child: const Center(
-              child: Text(
-                'ລາຍລະອຽດເພີ່ມເຕີມ',
-                style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: -0.7),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+      child: Center(
+        child: SizedBox(
+          height: h * 1.2,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SizedBox(
-                width: 100,
-                height: 47,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'ຍົກເລີກ',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: const MaterialStatePropertyAll(
-                      Color.fromARGB(255, 217, 96, 85),
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
+              Container(
+                height: h * 0.18,
+                width: w * 0.75,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).disabledColor,
+                    borderRadius: BorderRadius.circular(17)),
+                child: Center(
+                  child: DropdownButton<String>(
+                    hint: Center(
+                      child: Text(
+                        'ເລືອກໝວດ',
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).indicatorColor,
+                            fontSize: 27,
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: -0.3),
                       ),
                     ),
+                    dropdownColor: Theme.of(context).buttonColor,
+                    borderRadius: BorderRadius.circular(20),
+                    value: value,
+                    items: items.map(buildMenuItem).toList(),
+                    onChanged: (value) => setState(() {
+                      this.value = value;
+                    }),
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 25,
-              ),
-              SizedBox(
-                width: 100,
-                height: 47,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SavedScreen()));
-                  },
+              Container(
+                height: h * 0.18,
+                width: w * 0.75,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).disabledColor,
+                    borderRadius: BorderRadius.circular(17)),
+                child: const Center(
                   child: Text(
-                    'ບັນທືກ',
-                    style: TextStyle(color: Colors.black, fontSize: 15),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: const MaterialStatePropertyAll(
-                      Color.fromARGB(255, 119, 170, 100),
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
+                    'ເພີ່ມລາຍຈ່າຍ',
+                    style: TextStyle(
+                        fontFamily: 'Phetsarath',
+                        fontSize: 27,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: -0.7),
                   ),
                 ),
               ),
+              Container(
+                height: h * 0.18,
+                width: w * 0.75,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).disabledColor,
+                    borderRadius: BorderRadius.circular(17)),
+                child: const Center(
+                  child: Text(
+                    'ວັນ/ເວລາ/ປີ',
+                    style: TextStyle(
+                        fontFamily: 'Phetsarath',
+                        fontSize: 27,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: -0.7),
+                  ),
+                ),
+              ),
+              Container(
+                height: h * 0.18,
+                width: w * 0.75,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).disabledColor,
+                    borderRadius: BorderRadius.circular(17)),
+                child: const Center(
+                  child: Text(
+                    'ລາຍລະອຽດເພີ່ມເຕີມ',
+                    style: TextStyle(
+                        fontFamily: 'Phetsarath',
+                        fontSize: 27,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: -0.7),
+                  ),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 100,
+                    height: 47,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                        backgroundColor: const MaterialStatePropertyAll(
+                          Color.fromARGB(255, 217, 96, 85),
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                      ),
+                      child: const Text(
+                        'ຍົກເລີກ',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Phetsarath',
+                            fontSize: 16),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 25,
+                  ),
+                  SizedBox(
+                    width: 100,
+                    height: 47,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SavedScreen()));
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: const MaterialStatePropertyAll(
+                          Color.fromARGB(255, 119, 170, 100),
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                      ),
+                      child: const Text(
+                        'ບັນທືກ',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Phetsarath',
+                            fontSize: 16),
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
-          )
-        ],
+          ),
+        ),
       ),
     );
   }

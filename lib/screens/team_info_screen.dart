@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_auth/screens/about_us_screen.dart';
 
 class TeamInfo extends StatefulWidget {
   const TeamInfo({super.key});
@@ -14,71 +15,121 @@ class _TeamInfoState extends State<TeamInfo> {
     double h = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Team-Info'),
-      ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(top: 50),
-              child: Column(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 40),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/welcome.png'),
-                      ),
-                      borderRadius: BorderRadius.circular(40),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AboutUs(),
+                          ),
+                        );
+                        // Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: Theme.of(context).indicatorColor,
+                      )),
+                ],
+              ),
+              Container(
+                height: 180,
+                margin: const EdgeInsets.only(top: 50),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    CircleAvatar(
+                      radius: 55,
+                      backgroundImage: AssetImage('assets/images/Savath.jpg'),
                     ),
-                  ),
-                  const Text(
-                    'ປອ. ສະຫວາດ ໄຊບັນດິດ',
-                    style: TextStyle(fontSize: 18, letterSpacing: -0.8),
-                  ),
-                  const Text('(ອາຈານສອນ)',
-                      style: TextStyle(letterSpacing: -0.6)),
-                ],
+                    Text(
+                      'ປອ. ສະຫວາດ ໄຊປະດິດ',
+                      style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          fontSize: 18,
+                          letterSpacing: -0.3),
+                    ),
+                    Text(
+                      'ອາຈານສອນ',
+                      style: TextStyle(
+                          fontFamily: 'Phetsarath', letterSpacing: -0.2),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 30, right: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    "   👉 ເຄີຍສືກສາຢູທີ:",
-                    style: TextStyle(letterSpacing: -0.7),
-                  ),
-                  Text(
-                      "•   ລະດັບປະລິຍາເອກ:(ປີ 2019-2022)ທີ Osaka University (OU) "
-                      "ປະເທດຢີ່ປຸນ"),
-                  Text("•  ລະດັບປະລິຍາໂທ:(ປີ 2016-2018)ທີພາກວິຊາວິສະວະກໍາໄຟຟ້າ "
-                      "ມະຫາວິທະຍາໄລຈູລາລົງກອນມ, ປະເທດໄທ"),
-                  Text(
-                      "•   ລະດັບປະລິຍາຕີ:(ປີ 2010-2015)ທີພາກວິຊາວິສະວະກໍາຄອມພິວເຕີ "
-                      "ແລະ ເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ, ມະຫາວິທະຍາໄລແຫ່ງຊາດ"),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text("👉 ອາຊີປະຈຸບັນ:",
-                      style: TextStyle(letterSpacing: -0.7)),
-                  Text(
+              Container(
+                margin: const EdgeInsets.only(left: 30, right: 20, top: 50),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "   👉 ເຄີຍສືກສາຢູທີ:",
+                      style: TextStyle(fontFamily: 'Phetsarath'),
+                    ),
+                    Text(
+                      "•   ລະດັບປະລິຍາເອກ: (ປີ 2019-2022) ທີ່ Osaka University (OU) "
+                      "ປະເທດຢີ່ປຸນ",
+                      style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          color: Theme.of(context).colorScheme.secondary),
+                    ),
+                    Text(
+                      "•  ລະດັບປະລິຍາໂທ:(ປີ 2016-2018)ທີ່ພາກວິຊາວິສະວະກໍາໄຟຟ້າ "
+                      "ມະຫາວິທະຍາໄລຈູລາລົງກອນມ, ປະເທດໄທ",
+                      style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          color: Theme.of(context).colorScheme.secondary),
+                    ),
+                    Text(
+                      "•   ລະດັບປະລິຍາຕີ: (ປີ 2010-2015) ທີພາກວິຊາວິສະວະກໍາຄອມພິວເຕີ "
+                      "ແລະ ເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ, ມະຫາວິທະຍາໄລແຫ່ງຊາດ",
+                      style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          color: Theme.of(context).colorScheme.secondary),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const Text("   👉 ອາຊີປະຈຸບັນ:",
+                        style: TextStyle(letterSpacing: -0.7)),
+                    Text(
                       "•   ເປັນອາຈານສອນຢູ່ທີ່: ມະຫາວິທະຍາໄລແຫ່ງຊາດ, ຄະນະວິສະວະກໍາສາດ,"
-                      " ພາກວິຊາຄອມພິວເຕີ ແລະ ເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ"),
-                  Text("  ເປັນ CTO-Wayha Technology"),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text("  ເບີໂທ/ WhatsApp: 02059095902"),
-                  Text("  Facebook: Savath Saypadith"),
-                  Text("  Email: Phettvanh.bp@gmail.com"),
-                ],
-              ),
-            )
-          ],
+                      " ພາກວິຊາຄອມພິວເຕີ ແລະ ເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ",
+                      style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          color: Theme.of(context).colorScheme.secondary),
+                    ),
+                    Text(
+                      "•  ເປັນ CTO-Wayha Technology",
+                      style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          color: Theme.of(context).colorScheme.secondary),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Text("  ເບີໂທ/ WhatsApp: 02059095902",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).colorScheme.secondary)),
+                    Text("  Facebook: Savath Saypadith",
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary)),
+                    Text("  Email: Phettvanh.bp@gmail.com",
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary)),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -96,58 +147,102 @@ class _TeamInfo1State extends State<TeamInfo1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Team-Info'),
-      ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(top: 50),
-              child: Column(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 40),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/welcome.png'),
-                      ),
-                      borderRadius: BorderRadius.circular(40),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AboutUs(),
+                          ),
+                        );
+                        // Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: Theme.of(context).indicatorColor,
+                      )),
+                ],
+              ),
+              Container(
+                height: 190,
+                margin: const EdgeInsets.only(top: 50),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage('assets/images/phet.jpg'),
                     ),
-                  ),
-                  const Text(
-                    'ທ້າວ ເພັດຕາວັນ ບົວແພງ',
-                    style: TextStyle(fontSize: 18, letterSpacing: -0.8),
-                  ),
-                  const Text('(ແບັງ)',
-                      style: TextStyle(fontSize: 18, letterSpacing: -0.8)),
-                  const Text('ນັກສືກສາ ຫ້ອງ 3IT2'),
-                ],
+                    Text(
+                      'ທ້າວ ເພັດຕາວັນ ບົວແພງ',
+                      style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          fontSize: 18,
+                          letterSpacing: -0.3),
+                    ),
+                    Text('(ແບັງ)',
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 18,
+                            letterSpacing: -0.2)),
+                    Text('ນັກສືກສາ ຫ້ອງ 3IT2',
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 14,
+                            letterSpacing: -0.2)),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 30, right: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text("👉 ກໍາລັງສືກສາຢູທີ:"),
-                  Text(
-                      "•   ມະຫາວິທະຍາໄລແຫ່ງຊາດ, ຄະນະວິສະວະກໍາສາດ, ສາຂາວິຊາເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ"),
-                  Text("•  ສະຖາບັນ ຣັຕະນະ ບໍລິຫານທຸລະກິດ, ສາຂາການເງີນທະນາຄານ"),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text("👉 ໜ້າທີຮັບຜິດຊອບ: ຂຽນໂຄດ"),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text("ເບີໂທ/ WhatsApp: 02059095902"),
-                  Text("Email: Phettvanh.bp@gmail.com"),
-                ],
-              ),
-            )
-          ],
+              Container(
+                margin: const EdgeInsets.only(left: 30, right: 20, top: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("👉 ກໍາລັງສືກສາຢູທີ:",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 14,
+                            letterSpacing: -0.2)),
+                    Text(
+                        "•   ມະຫາວິທະຍາໄລແຫ່ງຊາດ, ຄະນະວິສະວະກໍາສາດ, ສາຂາວິຊາເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).colorScheme.secondary)),
+                    Text("•  ສະຖາບັນ ຣັຕະນະ ບໍລິຫານທຸລະກິດ, ສາຂາການເງີນທະນາຄານ",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).colorScheme.secondary)),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const Text("👉 ໜ້າທີຮັບຜິດຊອບ: ຂຽນໂຄດ",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 14,
+                            letterSpacing: -0.2)),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Text("ເບີໂທ/ WhatsApp: 02059095902",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).colorScheme.secondary)),
+                    Text("Email: Phettvanh.bp@gmail.com",
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary)),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -165,57 +260,98 @@ class _TeamInfo2State extends State<TeamInfo2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Team-Info'),
-      ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(top: 50),
-              child: Column(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 40),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/welcome.png'),
-                      ),
-                      borderRadius: BorderRadius.circular(40),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AboutUs(),
+                          ),
+                        );
+                        // Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: Theme.of(context).indicatorColor,
+                      )),
+                ],
+              ),
+              Container(
+                height: 180,
+                margin: const EdgeInsets.only(top: 50),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage('assets/images/welcome.png'),
                     ),
-                  ),
-                  const Text(
-                    'ທ້າວ ຢີລ່າງຢ່າງ ໜູຊົວຢ່າງ',
-                    style: TextStyle(fontSize: 18, letterSpacing: -0.8),
-                  ),
-                  const Text('(ຢີ)',
-                      style: TextStyle(fontSize: 18, letterSpacing: -0.8)),
-                  const Text('ນັກສືກສາ ຫ້ອງ 3IT2'),
-                ],
+                    Text(
+                      'ທ້າວ ຢີລ່າງຢ່າງ ໜູຊົວຢ່າງ',
+                      style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          fontSize: 18,
+                          letterSpacing: -0.2),
+                    ),
+                    Text('(ຢີ)',
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 18,
+                            letterSpacing: -0.2)),
+                    Text('ນັກສືກສາ ຫ້ອງ 3IT2',
+                        style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          fontSize: 14,
+                        )),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 30, right: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text("👉 ກໍາລັງສືກສາຢູທີ:"),
-                  Text(
-                      "•   ມະຫາວິທະຍາໄລແຫ່ງຊາດ, ຄະນະວິສະວະກໍາສາດ, ສາຂາວິຊາເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ"),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text("👉 ໜ້າທີຮັບຜິດຊອບ: ຂຽນໂຄດ"),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text("ເບີໂທ/ WhatsApp: 02028883297"),
-                  Text("Email: yeelangy105@gmail.com"),
-                ],
-              ),
-            )
-          ],
+              Container(
+                margin: const EdgeInsets.only(left: 30, right: 20, top: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("👉 ກໍາລັງສືກສາຢູທີ:",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 14,
+                            letterSpacing: -0.2)),
+                    Text(
+                        "•   ມະຫາວິທະຍາໄລແຫ່ງຊາດ, ຄະນະວິສະວະກໍາສາດ, ສາຂາວິຊາເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).colorScheme.secondary)),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const Text("👉 ໜ້າທີຮັບຜິດຊອບ: ຂຽນໂຄດ",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 14,
+                            letterSpacing: -0.2)),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Text("ເບີໂທ/ WhatsApp: 02028883297",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).colorScheme.secondary)),
+                    Text("Email: yeelangy105@gmail.com",
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary)),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -233,59 +369,105 @@ class _TeamInfo3State extends State<TeamInfo3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Team-Info'),
-      ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(top: 50),
-              child: Column(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 40),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/welcome.png'),
-                      ),
-                      borderRadius: BorderRadius.circular(40),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AboutUs(),
+                          ),
+                        );
+                        // Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: Theme.of(context).indicatorColor,
+                      )),
+                ],
+              ),
+              Container(
+                height: 180,
+                margin: const EdgeInsets.only(top: 50),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage('assets/images/pou.jpg'),
                     ),
-                  ),
-                  const Text(
-                    'ນາງ ພຸດທະສອນ ສອນທະລາ',
-                    style: TextStyle(fontSize: 18, letterSpacing: -0.8),
-                  ),
-                  const Text('(ແມັມ)',
-                      style: TextStyle(fontSize: 18, letterSpacing: -0.8)),
-                  const Text('ນັກສືກສາ ຫ້ອງ 3IT2'),
-                ],
+                    Text(
+                      'ນາງ ພຸດທະສອນ ສອນທະລາ',
+                      style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          fontSize: 18,
+                          letterSpacing: -0.2),
+                    ),
+                    Text('(ແມັມ)',
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 18,
+                            letterSpacing: -0.2)),
+                    Text('ນັກສືກສາ ຫ້ອງ 3IT2',
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 14,
+                            letterSpacing: -0.2)),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 30, right: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text("👉 ກໍາລັງສືກສາຢູທີ:"),
-                  Text(
-                      "•   ມະຫາວິທະຍາໄລແຫ່ງຊາດ, ຄະນະວິສະວະກໍາສາດ, ສາຂາວິຊາເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ"),
-                  Text("•  ວິທະຍາໄ ສອນພີທັກລາວມ, ສາຂາພາສາອັງກິດທຸລະກິດ"),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text("👉 ໜ້າທີຮັບຜິດຊອບ: UX/UI Design"),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text("  ເບີໂທ/ WhatsApp: 02097257739"),
-                  Text("  Facebook: Phouthasone Maem Sonethala"),
-                  Text("  Email: phouthasonesonthala@gmail.com"),
-                ],
-              ),
-            )
-          ],
+              Container(
+                margin: const EdgeInsets.only(left: 30, right: 20, top: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("👉 ກໍາລັງສືກສາຢູທີ:",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 14,
+                            letterSpacing: -0.2)),
+                    Text(
+                        "•   ມະຫາວິທະຍາໄລແຫ່ງຊາດ, ຄະນະວິສະວະກໍາສາດ, ສາຂາວິຊາເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).colorScheme.secondary)),
+                    Text("•  ວິທະຍາໄລ ສອນພີທັກລາວ, ສາຂາພາສາອັງກິດທຸລະກິດ",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).colorScheme.secondary)),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const Text("👉 ໜ້າທີຮັບຜິດຊອບ: ອອກແບບ UI",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 14,
+                            letterSpacing: -0.2)),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Text("  ເບີໂທ/ WhatsApp: 02097257739",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).colorScheme.secondary)),
+                    Text("  Facebook: Phouthasone Maem Sonethala",
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary)),
+                    Text("  Email: phouthasonesonthala@gmail.com",
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary)),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -303,58 +485,101 @@ class _TeamInfo4State extends State<TeamInfo4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Team-Info'),
-      ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(top: 50),
-              child: Column(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 40),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/welcome.png'),
-                      ),
-                      borderRadius: BorderRadius.circular(40),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AboutUs(),
+                          ),
+                        );
+                        // Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: Theme.of(context).indicatorColor,
+                      )),
+                ],
+              ),
+              Container(
+                height: 180,
+                margin: const EdgeInsets.only(top: 50),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage('assets/images/sao.jpeg'),
                     ),
-                  ),
-                  const Text(
-                    'ນາງ ບົວສະຫວັນ ໄຊຍະລາດ',
-                    style: TextStyle(fontSize: 18, letterSpacing: -0.8),
-                  ),
-                  const Text('(ເຊົ້າ)',
-                      style: TextStyle(fontSize: 18, letterSpacing: -0.8)),
-                  const Text('ນັກສືກສາ ຫ້ອງ 3IT2'),
-                ],
+                    Text(
+                      'ນາງ ບົວສະຫວັນ ໄຊຍະລາດ',
+                      style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          fontSize: 18,
+                          letterSpacing: -0.2),
+                    ),
+                    Text('(ເຊົ້າ)',
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 18,
+                            letterSpacing: -0.2)),
+                    Text('ນັກສືກສາ ຫ້ອງ 3IT2',
+                        style: TextStyle(
+                          fontFamily: 'Phetsarath',
+                          fontSize: 14,
+                        )),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 30, right: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text("👉 ກໍາລັງສືກສາຢູທີ:"),
-                  Text(
-                      "•   ມະຫາວິທະຍາໄລແຫ່ງຊາດ, ຄະນະວິສະວະກໍາສາດ, ສາຂາວິຊາເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ"),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text("👉 ໜ້າທີຮັບຜິດຊອບ: ຄົ້ນຫາຂໍ້ມູນ ແລະ ຈັດເອກະສານ"),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text("  ເບີໂທ/ WhatsApp: 02058003999"),
-                  Text("  Facebook: Bouasavanh Xaiyalat"),
-                  Text("  Email: bousavanh.xyl@gmail.com"),
-                ],
-              ),
-            )
-          ],
+              Container(
+                margin: const EdgeInsets.only(left: 30, right: 20, top: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("👉 ກໍາລັງສືກສາຢູທີ:",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 14,
+                            letterSpacing: -0.2)),
+                    Text(
+                        "•   ມະຫາວິທະຍາໄລແຫ່ງຊາດ, ຄະນະວິສະວະກໍາສາດ, ສາຂາວິຊາເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).colorScheme.secondary)),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const Text("👉 ໜ້າທີຮັບຜິດຊອບ: ຄົ້ນຫາຂໍ້ມູນ ແລະ ຈັດເອກະສານ",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            fontSize: 14,
+                            letterSpacing: -0.2)),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Text("  ເບີໂທ/ WhatsApp: 02058003999",
+                        style: TextStyle(
+                            fontFamily: 'Phetsarath',
+                            color: Theme.of(context).colorScheme.secondary)),
+                    Text("  Facebook: Bouasavanh Xaiyalat",
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary)),
+                    Text("  Email: bousavanh.xyl@gmail.com",
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary)),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
