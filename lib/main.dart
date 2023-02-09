@@ -16,7 +16,7 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-   const MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
         theme: CustomTheme.lightTheme,
         darkTheme: CustomTheme.darkTheme,
         themeMode: currentTheme.currentTheme,
-        home: SpiashScreen(),
+        home: const SpiashScreen(),
       ),
     );
   }

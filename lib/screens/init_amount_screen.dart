@@ -81,7 +81,7 @@ class _InitAmountState extends State<InitAmount> {
                               ]),
                           child: TextField(
                             style: const TextStyle(
-                                fontSize: 18, letterSpacing: -0.2),
+                                fontSize: 21, letterSpacing: -0.2),
                             decoration: InputDecoration(
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(25),
@@ -133,8 +133,9 @@ class _InitAmountState extends State<InitAmount> {
                               ]),
                           child: TextField(
                             controller: textConttroller,
+                            keyboardType: TextInputType.number,
                             style: const TextStyle(
-                                fontSize: 18, letterSpacing: -0.2),
+                                fontSize: 21, letterSpacing: -0.2),
                             decoration: InputDecoration(
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(25),
@@ -158,7 +159,7 @@ class _InitAmountState extends State<InitAmount> {
                     ),
                     Container(
                       margin: const EdgeInsets.only(top: 50),
-                      height: 64,
+                      height: 50,
                       child: ElevatedButton(
                         onPressed: () {
                           // allItemes.add({'amount': textConttroller.text});
@@ -178,20 +179,20 @@ class _InitAmountState extends State<InitAmount> {
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                              Theme.of(context).shadowColor),
+                              Theme.of(context).focusColor),
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'ດໍາເນີນການຕໍ່',
                           style: TextStyle(
-                              fontSize: 26,
-                              fontFamily: 'Phetsarath',
-                              letterSpacing: -0.8,
-                              color: Theme.of(context).highlightColor),
+                            fontSize: 26,
+                            fontFamily: 'Phetsarath',
+                            letterSpacing: -0.8,
+                          ),
                         ),
                       ),
                     )

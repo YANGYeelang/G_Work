@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:get_auth/screens/about_us_screen.dart';
+// import 'package:flutter/rendering.dart';
+// import 'package:get/get_rx/src/rx_types/rx_types.dart';
+// import 'package:get_auth/screens/about_us_screen.dart';
 import 'package:get_auth/screens/graph_screen.dart';
 import 'package:get_auth/screens/home_screen.dart';
-import 'package:get_auth/screens/implements_screen.dart';
+import 'package:get_auth/screens/imp_screen.dart';
 import 'package:get_auth/screens/sign_out_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_auth/screens/noti_screen.dart';
-import 'package:spincircle_bottom_bar/modals.dart';
-import 'package:spincircle_bottom_bar/spincircle_bottom_bar.dart';
+// import 'package:spincircle_bottom_bar/modals.dart';
+// import 'package:spincircle_bottom_bar/spincircle_bottom_bar.dart';
 
 class MainScreen extends StatefulWidget {
   String navCurrentIndex;

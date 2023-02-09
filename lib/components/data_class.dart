@@ -1,319 +1,137 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
 class DataClass extends ChangeNotifier {
   final List<Map<String, dynamic>> _allList = [
     {
       'id': 1,
-      'item': 'ລາຍການທັງໝົດ',
-      'datetime': '18/1/2023',
-      'time': '9: 30',
-      'amount': 200000
+      'item': 'ຄ່າເດີນທາງ',
+      'datetime': '20/1/2023',
+      'time': '9: 30 AM',
+      'amount': -100000
     },
     {
       'id': 2,
-      'item': 'ລາຍການທັງໝົດ',
-      'datetime': '18/2/2023',
-      'time': '9: 30',
-      'amount': 300000
+      'item': 'ຄ່າຮຽນ',
+      'datetime': '22/1/2023',
+      'time': '6: 30 PM',
+      'amount': -150000
     },
     {
       'id': 3,
-      'item': 'ລາຍການທັງໝົດ',
-      'datetime': '18/3/2023',
-      'time': '9: 30',
-      'amount': 400000
+      'item': 'ເງີນເດືອນ',
+      'datetime': '5/1/2023',
+      'time': '10: 40 AM',
+      'amount': 200000
     },
     {
       'id': 4,
-      'item': 'ລາຍການທັງໝົດ',
-      'datetime': '18/4/2023',
-      'time': '9: 30',
-      'amount': 500000
+      'item': 'ຄ່າທີພັກ',
+      'datetime': '20/11/2022',
+      'time': '9: 50 AM',
+      'amount': -250000
     },
     {
       'id': 5,
-      'item': 'ລາຍການທັງໝົດ',
-      'datetime': '18/5/2023',
-      'time': '9: 30',
-      'amount': 600000
+      'item': 'ຄ່າເລີ່ມຕົ້ນ',
+      'datetime': '28/10/2022',
+      'time': '7: 44 AM',
+      'amount': 300000
     },
-    {
-      'id': 6,
-      'item': 'ລາຍການທັງໝົດ',
-      'datetime': '18/6/2023',
-      'time': '9: 30',
-      'amount': 700000
-    },
-    {
-      'id': 7,
-      'item': 'ລາຍການທັງໝົດ',
-      'datetime': '18/7/2023',
-      'time': '9: 30',
-      'amount': 800000
-    }
   ];
 
   final List<Map<String, dynamic>> _letestList = [
     {
       'id': 1,
-      'item': 'ລາຍການລ່າສຸດ',
+      'item': 'ຄ່າເດີນທາງ',
       'datetime': '20/1/2023',
-      'time': '9: 30',
-      'amount': 200000
+      'time': '9: 30 AM',
+      'amount': -100000
     },
-    {
-      'id': 2,
-      'item': 'ລາຍການລ່າສຸດ',
-      'datetime': '20/2/2023',
-      'time': '9: 30',
-      'amount': 300000
-    },
-    {
-      'id': 3,
-      'item': 'ລາຍການລ່າສຸດ',
-      'datetime': '20/3/2023',
-      'time': '9: 30',
-      'amount': 400000
-    },
-    {
-      'id': 4,
-      'item': 'ລາຍການລ່າສຸດ',
-      'datetime': '20/4/2023',
-      'time': '9: 30',
-      'amount': 500000
-    },
-    {
-      'id': 5,
-      'item': 'ລາຍການລ່າສຸດ',
-      'datetime': '20/5/2023',
-      'time': '9: 30',
-      'amount': 600000
-    },
-    {
-      'id': 6,
-      'item': 'ລາຍການລ່າສຸດ',
-      'datetime': '20/6/2023',
-      'time': '9: 30',
-      'amount': 700000
-    },
-    {
-      'id': 7,
-      'item': 'ລາຍການລ່າສຸດ',
-      'datetime': '20/7/2023',
-      'time': '9: 30',
-      'amount': 800000
-    }
   ];
 
   final List<Map<String, dynamic>> _dayList = [
     {
       'id': 1,
-      'item': 'ລາຍການເປັນມື້',
-      'datetime': '23/1/2023',
-      'time': '9: 30',
-      'amount': 200000
+      'item': 'ຄ່າເດີນທາງ',
+      'datetime': '20/1/2023',
+      'time': '9: 30 AM',
+      'amount': -100000
     },
-    {
-      'id': 2,
-      'item': 'ລາຍການເປັນມື້',
-      'datetime': '23/2/2023',
-      'time': '9: 30',
-      'amount': 300000
-    },
-    {
-      'id': 3,
-      'item': 'ລາຍການເປັນມື້',
-      'datetime': '23/3/2023',
-      'time': '9: 30',
-      'amount': 400000
-    },
-    {
-      'id': 4,
-      'item': 'ລາຍການເປັນມື້',
-      'datetime': '23/4/2023',
-      'time': '9: 30',
-      'amount': 500000
-    },
-    {
-      'id': 5,
-      'item': 'ລາຍການເປັນມື້',
-      'datetime': '23/5/2023',
-      'time': '9: 30',
-      'amount': 600000
-    },
-    {
-      'id': 6,
-      'item': 'ລາຍການເປັນມື້',
-      'datetime': '23/6/2023',
-      'time': '9: 30',
-      'amount': 700000
-    },
-    {
-      'id': 7,
-      'item': 'ລາຍການເປັນມື້',
-      'datetime': '23/7/2023',
-      'time': '9: 30',
-      'amount': 800000
-    }
   ];
 
   final List<Map<String, dynamic>> _weekList = [
     {
       'id': 1,
-      'item': 'ລາຍການເປັນອາທິດ',
-      'datetime': '10/1/2023',
-      'time': '9: 30',
-      'amount': 200000
+      'item': 'ຄ່າເດີນທາງ',
+      'datetime': '20/1/2023',
+      'time': '9: 30 AM',
+      'amount': -100000
     },
     {
       'id': 2,
-      'item': 'ລາຍການເປັນອາທິດ',
-      'datetime': '10/2/2023',
-      'time': '9: 30',
-      'amount': 300000
+      'item': 'ຄ່າຮຽນ',
+      'datetime': '22/1/2023',
+      'time': '6: 30 PM',
+      'amount': -150000
     },
-    {
-      'id': 3,
-      'item': 'ລາຍການເປັນອາທິດ',
-      'datetime': '10/3/2023',
-      'time': '9: 30',
-      'amount': 400000
-    },
-    {
-      'id': 4,
-      'item': 'ລາຍການເປັນອາທິດ',
-      'datetime': '10/4/2023',
-      'time': '9: 30',
-      'amount': 500000
-    },
-    {
-      'id': 5,
-      'item': 'ລາຍການເປັນອາທິດ',
-      'datetime': '10/5/2023',
-      'time': '9: 30',
-      'amount': 600000
-    },
-    {
-      'id': 6,
-      'item': 'ລາຍການເປັນອາທິດ',
-      'datetime': '10/6/2023',
-      'time': '9: 30',
-      'amount': 700000
-    },
-    {
-      'id': 7,
-      'item': 'ລາຍການເປັນອາທິດ',
-      'datetime': '10/7/2023',
-      'time': '9: 30',
-      'amount': 800000
-    }
   ];
 
   final List<Map<String, dynamic>> _monuthList = [
     {
       'id': 1,
-      'item': 'ລາຍການເປັນເດືອນ',
-      'datetime': '15/1/2023',
-      'time': '9: 30',
-      'amount': 200000
+      'item': 'ຄ່າເດີນທາງ',
+      'datetime': '20/1/2023',
+      'time': '9: 30 AM',
+      'amount': -100000
     },
     {
       'id': 2,
-      'item': 'ລາຍການເປັນເດືອນ',
-      'datetime': '15/2/2023',
-      'time': '9: 30',
-      'amount': 300000
+      'item': 'ຄ່າຮຽນ',
+      'datetime': '22/1/2023',
+      'time': '6: 30 PM',
+      'amount': -150000
     },
     {
       'id': 3,
-      'item': 'ລາຍການເປັນເດືອນ',
-      'datetime': '15/3/2023',
-      'time': '9: 30',
-      'amount': 400000
+      'item': 'ເງີນເດືອນ',
+      'datetime': '5/1/2023',
+      'time': '10: 40 AM',
+      'amount': 200000
     },
-    {
-      'id': 4,
-      'item': 'ລາຍການເປັນເດືອນ',
-      'datetime': '15/4/2023',
-      'time': '9: 30',
-      'amount': 500000
-    },
-    {
-      'id': 5,
-      'item': 'ລາຍການເປັນເດືອນ',
-      'datetime': '15/5/2023',
-      'time': '9: 30',
-      'amount': 600000
-    },
-    {
-      'id': 6,
-      'item': 'ລາຍການເປັນເດືອນ',
-      'datetime': '15/6/2023',
-      'time': '9: 30',
-      'amount': 700000
-    },
-    {
-      'id': 7,
-      'item': 'ລາຍການເປັນເດືອນ',
-      'datetime': '15/7/2023',
-      'time': '9: 30',
-      'amount': 800000
-    }
   ];
 
   final List<Map<String, dynamic>> _yearList = [
     {
       'id': 1,
-      'item': 'ລາຍການເປັນປີ',
-      'datetime': '18/1/2023',
-      'time': '9: 30',
-      'amount': 200000
+      'item': 'ຄ່າເດີນທາງ',
+      'datetime': '20/1/2023',
+      'time': '9: 30 AM',
+      'amount': -100000
     },
     {
       'id': 2,
-      'item': 'ລາຍການເປັນປີ',
-      'datetime': '18/2/2023',
-      'time': '9: 30',
-      'amount': 300000
+      'item': 'ຄ່າຮຽນ',
+      'datetime': '22/1/2023',
+      'time': '6: 30 PM',
+      'amount': -150000
     },
     {
       'id': 3,
-      'item': 'ລາຍການເປັນປີ',
-      'datetime': '18/3/2023',
-      'time': '9: 30',
-      'amount': 400000
+      'item': 'ເງີນເດືອນ',
+      'datetime': '5/1/2023',
+      'time': '10: 40 AM',
+      'amount': 200000
     },
     {
       'id': 4,
-      'item': 'ລາຍການເປັນປີ',
-      'datetime': '18/4/2023',
-      'time': '9: 30',
-      'amount': 500000
+      'item': 'ຄ່າທີພັກ',
+      'datetime': '20/11/2022',
+      'time': '9: 50 AM',
+      'amount': -250000
     },
-    {
-      'id': 5,
-      'item': 'ລາຍການເປັນປີ',
-      'datetime': '18/5/2023',
-      'time': '9: 30',
-      'amount': 600000
-    },
-    {
-      'id': 6,
-      'item': 'ລາຍການເປັນປີ',
-      'datetime': '18/6/2023',
-      'time': '9: 30',
-      'amount': 700000
-    },
-    {
-      'id': 7,
-      'item': 'ລາຍການເປັນປີ',
-      'datetime': '18/7/2023',
-      'time': '9: 30',
-      'amount': 800000
-    }
   ];
 
   List<Map<String, dynamic>> showList = [];

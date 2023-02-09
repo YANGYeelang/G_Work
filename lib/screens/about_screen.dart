@@ -1,12 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get_auth/components/data_class.dart';
 import 'package:get_auth/screens/about_app_screen.dart';
 import 'package:get_auth/screens/about_us_screen.dart';
 import 'package:get_auth/screens/main_screen.dart';
-import 'package:get_auth/screens/sign_out_screen.dart';
-import 'package:provider/provider.dart';
 
 class About extends StatefulWidget {
   const About({super.key});
@@ -79,70 +74,88 @@ class _AboutState extends State<About> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      color: Theme.of(context).buttonColor,
-                      height: h * 0.1,
-                      width: w * 0.7,
-                      child: Center(
-                        child: RichText(
-                          text: TextSpan(
-                            text: 'ປະຫວັດການເຄື່ອງໄຫວ',
-                            style: TextStyle(
-                              fontFamily: 'Phetsarath',
-                              color: Theme.of(context).indicatorColor,
-                              fontSize: 24,
-                              letterSpacing: -0.2,
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Provider.of<DataClass>(context, listen: false)
-                                    .alllist(1);
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        MainScreen(navCurrentIndex: '0'),
-                                  ),
-                                );
-                              },
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                MainScreen(navCurrentIndex: '0'),
                           ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      color: Theme.of(context).buttonColor,
-                      height: h * 0.1,
-                      width: w * 0.7,
-                      child: Center(
-                        child: RichText(
-                          text: TextSpan(
-                            text: 'ກ່ຽວກັບແອັບ',
-                            style: TextStyle(
+                        );
+                      },
+                      child: Container(
+                        color: Theme.of(context).buttonColor,
+                        // color: Colors.blue,
+                        height: h * 0.1,
+                        width: w * 0.7,
+                        child: Center(
+                          child: RichText(
+                            text: TextSpan(
+                              text: 'ປະຫວັດການເຄື່ອງໄຫວ',
+                              style: TextStyle(
                                 fontFamily: 'Phetsarath',
                                 color: Theme.of(context).indicatorColor,
                                 fontSize: 24,
-                                letterSpacing: -0.2),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () => Get.to(() => const AboutApp()),
+                                letterSpacing: -0.2,
+                              ),
+                              // recognizer: TapGestureRecognizer()
+                              //   ..onTap = () {
+                              //     Provider.of<DataClass>(context, listen: false)
+                              //         .alllist(1);
+                              //   },
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    Container(
-                      color: Theme.of(context).buttonColor,
-                      height: h * 0.1,
-                      width: w * 0.7,
-                      child: Center(
-                        child: RichText(
-                          text: TextSpan(
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AboutApp()));
+                      },
+                      child: Container(
+                        color: Theme.of(context).buttonColor,
+                        height: h * 0.1,
+                        width: w * 0.7,
+                        child: Center(
+                          child: RichText(
+                            text: TextSpan(
+                              text: 'ກ່ຽວກັບແອັບ',
+                              style: TextStyle(
+                                  fontFamily: 'Phetsarath',
+                                  color: Theme.of(context).indicatorColor,
+                                  fontSize: 24,
+                                  letterSpacing: -0.2),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AboutUs()));
+                      },
+                      child: Container(
+                        color: Theme.of(context).buttonColor,
+                        height: h * 0.1,
+                        width: w * 0.7,
+                        child: Center(
+                          child: RichText(
+                            text: TextSpan(
                               text: 'ກ່ຽວກັບພວກເຮົາ',
                               style: TextStyle(
                                   fontFamily: 'Phetsarath',
                                   color: Theme.of(context).indicatorColor,
                                   fontSize: 24,
                                   letterSpacing: -0.2),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () => Get.to(() => const AboutUs())),
+                            ),
+                          ),
                         ),
                       ),
                     ),

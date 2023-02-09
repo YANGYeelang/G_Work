@@ -1,5 +1,6 @@
 // import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
+import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:get_auth/components/dialog_calen.dart';
 import 'package:get_auth/pei_chart/dchart_pie_page.dart';
 
@@ -11,14 +12,16 @@ class GraphScreen extends StatefulWidget {
 }
 
 class _GraphScreenState extends State<GraphScreen> {
-  final items = [
-    '2023',
-    '2024',
-    '2025',
-    '2026',
-    '2027',
-  ];
+  // final items = [
+  //   '2023',
+  //   '2024',
+  //   '2025',
+  //   '2026',
+  //   '2027',
+  // ];
   String? value;
+  Offset distance = const Offset(0, 10);
+  double blur = 10.0;
 
   @override
   Widget build(BuildContext context) {
@@ -56,16 +59,31 @@ class _GraphScreenState extends State<GraphScreen> {
                     ),
                     Container(
                       width: 130,
-                      height: 60,
+                      height: 50,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
                         color: Theme.of(context).buttonColor,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: blur,
+                            spreadRadius: 1,
+                            inset: true,
+                            offset: -distance,
+                            color: Theme.of(context).buttonColor,
+                          ),
+                          const BoxShadow(
+                            blurRadius: 2,
+                            inset: true,
+                            offset: Offset(0, 4),
+                            color: Colors.grey,
+                          ),
+                        ],
                       ),
-                      child: const Center(
+                      child: Center(
                           child: Text(
                         '500,000 K',
                         style: TextStyle(
-                            color: Color.fromARGB(255, 142, 230, 231)),
+                            color: Theme.of(context).accentColor, fontSize: 17),
                       )),
                     )
                   ],
@@ -74,8 +92,19 @@ class _GraphScreenState extends State<GraphScreen> {
                   width: 150,
                 ),
                 ElevatedButton(
-                    onPressed: () => DialogCalendar(context),
-                    child: const Text('Calendar'))
+                  onPressed: () => DialogCalendar(context),
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                  child: const Icon(
+                    Icons.calendar_month_outlined,
+                    size: 25,
+                  ),
+                )
 
                 // Container(
                 //   width: 90,

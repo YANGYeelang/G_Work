@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SpiashScreen extends StatelessWidget {
-  SpiashScreen({super.key});
+  const SpiashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,12 +9,13 @@ class SpiashScreen extends StatelessWidget {
       width: double.maxFinite,
       height: double.maxFinite,
       color: Colors.white,
-      child: Center(
-        child: Container(
-          width: 100,
-          height: 100,
-          child: const CircularProgressIndicator(
-            backgroundColor: Color.fromARGB(255, 215, 45, 36),
+      child: const Center(
+        child: SizedBox(
+          width: 50,
+          height: 50,
+          child: CircularProgressIndicator(
+            backgroundColor: Color.fromARGB(10, 30, 30, 30),
+            color: Color.fromARGB(255, 196, 196, 196),
           ),
         ),
       ),

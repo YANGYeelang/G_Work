@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:get_auth/components/home_detail.dart';
-import 'package:get_auth/components/home_list_menu.dart';
+import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
+import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
+import 'package:get_auth/screens/home_detail.dart';
+import 'package:get_auth/screens/home_list_menu.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,6 +11,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Offset distance = const Offset(0, 10);
+  double blur = 10.0;
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
@@ -28,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
+                    SizedBox(
                       width: w * 0.3,
                       height: h * 0.1,
                       child: Column(
@@ -41,25 +43,41 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontFamily: 'Phetsarath',
                             ),
                           ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              fixedSize: MaterialStateProperty.all(
-                                const Size(125, 43),
-                              ),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
+                          Container(
+                            width: 125,
+                            height: 43,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).buttonColor,
+                              borderRadius: BorderRadius.circular(12),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: blur,
+                                  spreadRadius: 1,
+                                  inset: true,
+                                  offset: -distance,
+                                  color: Theme.of(context).buttonColor,
                                 ),
+                                const BoxShadow(
+                                  blurRadius: 2,
+                                  inset: true,
+                                  offset: Offset(0, 4),
+                                  color: Colors.grey,
+                                ),
+                              ],
+                            ),
+                            // decoration: BoxDecoration(
+                            //   borderRadius: BorderRadius.circular(11),
+                            //   color: Theme.of(context).buttonColor,
+                            // ),
+                            child: Center(
+                              child: Text(
+                                '0 K',
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Theme.of(context).accentColor),
                               ),
                             ),
-                            child: const Text(
-                              '5,000,000 K',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Color.fromARGB(255, 142, 230, 231)),
-                            ),
-                            onPressed: () {},
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -68,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: h * 0.13,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Theme.of(context).dividerColor,
+                        color: Theme.of(context).buttonColor,
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -79,34 +97,33 @@ class _HomeScreenState extends State<HomeScreen> {
                               Text(
                                 'ລາຍຮັບ',
                                 style: TextStyle(
-                                  color: Theme.of(context).errorColor,
+                                  color: Theme.of(context).shadowColor,
                                   fontSize: 20,
                                   fontWeight: FontWeight.w800,
                                   letterSpacing: -0.4,
                                   fontFamily: 'Phetsarath',
                                 ),
                               ),
-                              ElevatedButton(
-                                onPressed: () {},
-                                style: ButtonStyle(
-                                  fixedSize: MaterialStateProperty.all(
-                                    const Size(140, 43),
-                                  ),
-                                  shape: MaterialStateProperty.all(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
+                              Container(
+                                width: 140,
+                                height: 43,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(11),
+                                  color: Theme.of(context).dividerColor,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    '500,000 K',
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Theme.of(context).accentColor),
                                   ),
                                 ),
-                                child: Text(
-                                  '100,000 K',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Theme.of(context).accentColor,
-                                  ),
-                                ),
-                              )
+                              ),
                             ],
+                          ),
+                          const SizedBox(
+                            height: 3,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -114,32 +131,30 @@ class _HomeScreenState extends State<HomeScreen> {
                               const Text(
                                 'ລາຍຈ່າຍ',
                                 style: TextStyle(
-                                  color: Color.fromARGB(255, 238, 72, 50),
+                                  color: Color.fromARGB(240, 202, 106, 101),
                                   fontSize: 20,
                                   fontWeight: FontWeight.w800,
                                   letterSpacing: -0.4,
                                   fontFamily: 'Phetsarath',
                                 ),
                               ),
-                              ElevatedButton(
-                                onPressed: () {},
-                                style: ButtonStyle(
-                                  fixedSize: MaterialStateProperty.all(
-                                    const Size(140, 43),
-                                  ),
-                                  shape: MaterialStateProperty.all(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
+                              Container(
+                                width: 140,
+                                height: 43,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(11),
+                                  color: Theme.of(context).dividerColor,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    '500,000 K',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Theme.of(context).accentColor,
                                     ),
                                   ),
                                 ),
-                                child: Text(
-                                  '50,000 K',
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Theme.of(context).accentColor),
-                                ),
-                              )
+                              ),
                             ],
                           )
                         ],
@@ -150,7 +165,20 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Column(
-              children: [ListMenuScreen(), const Detail()],
+              children: [
+                ListMenuScreen(),
+                // Container(
+                //   decoration: const BoxDecoration(
+                //     border: Border(
+                //       bottom: BorderSide(
+                //         color: Color.fromARGB(255, 116, 182, 194),
+                //         width: 2,
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                Detail()
+              ],
             )
           ],
         ),

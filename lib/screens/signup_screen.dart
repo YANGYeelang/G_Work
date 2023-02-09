@@ -11,14 +11,24 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  bool? _passwordVisible;
+  bool? _sePasswordVisible;
+
+  @override
+  void initState() {
+    _passwordVisible = false;
+    _sePasswordVisible = false;
+    super.initState();
+  }
+
+  List images = ['google.png', 'facebook1.png'];
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-
-    List images = ['google.png', 'facebook1.png'];
-    var emailController = TextEditingController();
-    var passwordController = TextEditingController();
     print(emailController);
 
     return GestureDetector(
@@ -118,9 +128,10 @@ class _SignUpPageState extends State<SignUpPage> {
                                   )
                                 ]),
                             child: TextField(
+                              obscureText: !_passwordVisible!,
+                              controller: passwordController,
                               strutStyle:
                                   const StrutStyle(height: 2, fontSize: 17),
-                              controller: passwordController,
                               // obscureText: true,
                               style: const TextStyle(
                                   color: Colors.black, fontSize: 20),
@@ -146,6 +157,19 @@ class _SignUpPageState extends State<SignUpPage> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(18),
                                 ),
+                                suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _passwordVisible = !_passwordVisible!;
+                                    });
+                                  },
+                                  icon: Icon(
+                                    _passwordVisible!
+                                        ? Icons.visibility
+                                        : Icons.visibility_off,
+                                    color: Colors.grey[30],
+                                  ),
+                                ),
                               ),
                             ),
                           ),
@@ -166,32 +190,44 @@ class _SignUpPageState extends State<SignUpPage> {
                               strutStyle:
                                   const StrutStyle(height: 2, fontSize: 17),
                               // controller: passwordController,
-                              // obscureText: true,
+                              obscureText: !_sePasswordVisible!,
                               style: const TextStyle(
                                   color: Colors.black, fontSize: 20),
                               decoration: InputDecoration(
-                                hintStyle: const TextStyle(fontSize: 19),
-                                hintText: 'Confirm',
-                                prefixIcon: const Icon(
-                                  Icons.password_outlined,
-                                  color: Color.fromARGB(255, 157, 137, 113),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(18),
-                                  borderSide: const BorderSide(
-                                      color:
-                                          Color.fromARGB(255, 205, 216, 205)),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(18),
-                                  borderSide: const BorderSide(
-                                      color:
-                                          Color.fromARGB(255, 205, 216, 205)),
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(18),
-                                ),
-                              ),
+                                  hintStyle: const TextStyle(fontSize: 19),
+                                  hintText: 'Confirm',
+                                  prefixIcon: const Icon(
+                                    Icons.password_outlined,
+                                    color: Color.fromARGB(255, 157, 137, 113),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(18),
+                                    borderSide: const BorderSide(
+                                        color:
+                                            Color.fromARGB(255, 205, 216, 205)),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(18),
+                                    borderSide: const BorderSide(
+                                        color:
+                                            Color.fromARGB(255, 205, 216, 205)),
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(18),
+                                  ),
+                                  suffixIcon: IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _sePasswordVisible =
+                                              !_sePasswordVisible!;
+                                        });
+                                      },
+                                      icon: Icon(
+                                        _sePasswordVisible!
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
+                                        color: Colors.grey[30],
+                                      ))),
                             ),
                           ),
                         ],
@@ -220,7 +256,6 @@ class _SignUpPageState extends State<SignUpPage> {
                               fontSize: 21,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 0.4,
-                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -237,7 +272,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         style: TextStyle(
                           fontFamily: 'Phetsarath',
                           fontSize: 21,
-                          color: Theme.of(context).indicatorColor,
+                          color: Theme.of(context).accentColor,
                         ),
                       ),
                     ),

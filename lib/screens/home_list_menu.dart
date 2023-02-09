@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_auth/components/data_class.dart';
-import 'package:get_auth/components/themes.dart';
 import 'package:provider/provider.dart';
 
 class ListMenuScreen extends StatefulWidget {
-  ListMenuScreen();
+  const ListMenuScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -20,7 +19,7 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
     double h = MediaQuery.of(context).size.height;
 
     return Container(
-      color: Theme.of(context).highlightColor,
+      color: Theme.of(context).dividerColor,
       child: Padding(
         padding: const EdgeInsets.only(top: 13, bottom: 13),
         child: Row(
@@ -55,7 +54,7 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                           visible: countItems == 0,
                           child: Container(
                             height: 2,
-                            width: w * 0.09,
+                            width: w * 0.08,
                             color: Theme.of(context).canvasColor,
                           ),
                         ),
@@ -88,7 +87,7 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                           visible: countItems == 1,
                           child: Container(
                             height: 2,
-                            width: w * 0.05,
+                            width: w * 0.044,
                             color: Theme.of(context).canvasColor,
                           ),
                         )
@@ -121,7 +120,7 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                           visible: countItems == 2,
                           child: Container(
                             height: 2,
-                            width: w * 0.1,
+                            width: w * 0.09,
                             color: Theme.of(context).canvasColor,
                           ),
                         )
@@ -154,7 +153,7 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                           visible: countItems == 3,
                           child: Container(
                             height: 2,
-                            width: w * 0.09,
+                            width: w * 0.08,
                             color: Theme.of(context).canvasColor,
                           ),
                         )
@@ -220,7 +219,7 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
                           visible: countItems == 5,
                           child: Container(
                             height: 2,
-                            width: w * 0.12,
+                            width: w * 0.10,
                             color: Theme.of(context).canvasColor,
                           ),
                         )

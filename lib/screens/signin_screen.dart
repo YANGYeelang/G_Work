@@ -1,12 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_auth/components/themes.dart';
 import 'package:get_auth/screens/auth_controller.dart';
 import 'package:get_auth/screens/signup_screen.dart';
 
 class SignInPage extends StatefulWidget {
-  SignInPage({super.key});
+  const SignInPage({super.key});
 
   @override
   State<SignInPage> createState() => _SignInPageState();
@@ -15,6 +14,13 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+  bool? _passwordVisible;
+
+  @override
+  void initState() {
+    _passwordVisible = false;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +132,7 @@ class _SignInPageState extends State<SignInPage> {
                                     ]),
                                 child: TextField(
                                   controller: passwordController,
-                                  obscureText: true,
+                                  obscureText: !_passwordVisible!,
                                   strutStyle:
                                       const StrutStyle(height: 2, fontSize: 17),
                                   style: const TextStyle(
@@ -135,7 +141,7 @@ class _SignInPageState extends State<SignInPage> {
                                     hintStyle: const TextStyle(fontSize: 19),
                                     hintText: 'Password',
                                     prefixIcon: const Icon(
-                                      Icons.password_outlined,
+                                      Icons.lock_outlined,
                                       color: Color.fromARGB(255, 157, 137, 113),
                                     ),
                                     focusedBorder: OutlineInputBorder(
@@ -154,6 +160,19 @@ class _SignInPageState extends State<SignInPage> {
                                     ),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(22),
+                                    ),
+                                    suffixIcon: IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          print(!_passwordVisible!);
+                                          _passwordVisible = !_passwordVisible!;
+                                        });
+                                      },
+                                      icon: Icon(
+                                        _passwordVisible!
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -187,7 +206,6 @@ class _SignInPageState extends State<SignInPage> {
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 0.4,
-                              color: Colors.white,
                             ),
                           ),
                         ),

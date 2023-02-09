@@ -82,7 +82,7 @@ class _TeamInfoState extends State<TeamInfo> {
                     ),
                     Text(
                       "•  ລະດັບປະລິຍາໂທ:(ປີ 2016-2018)ທີ່ພາກວິຊາວິສະວະກໍາໄຟຟ້າ "
-                      "ມະຫາວິທະຍາໄລຈູລາລົງກອນມ, ປະເທດໄທ",
+                      "ມະຫາວິທະຍາໄລຈູລາລົງກອນ, ປະເທດໄທ",
                       style: TextStyle(
                           fontFamily: 'Phetsarath',
                           color: Theme.of(context).colorScheme.secondary),

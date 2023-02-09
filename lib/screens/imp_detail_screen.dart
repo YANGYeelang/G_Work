@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get_auth/screens/main_screen.dart';
+import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
+import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:get_auth/screens/saved_screen.dart';
 
 class MImpDetail extends StatefulWidget {
@@ -10,6 +10,9 @@ class MImpDetail extends StatefulWidget {
 }
 
 class _MImpDetailState extends State<MImpDetail> {
+  TextEditingController imcomeController = TextEditingController();
+  TextEditingController datetimeController = TextEditingController();
+  TextEditingController describeController = TextEditingController();
   final items = [
     'ເງີນເດືອນ',
     'ຂາຍເຄື່ອງ',
@@ -19,6 +22,8 @@ class _MImpDetailState extends State<MImpDetail> {
     'ລາງວັນ',
   ];
   String? value;
+  Offset distance = const Offset(0, 10);
+  double blur = 10.0;
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +62,7 @@ class _MImpDetailState extends State<MImpDetail> {
                     borderRadius: BorderRadius.circular(17)),
                 child: Center(
                   child: DropdownButton<String>(
+                    iconSize: 50,
                     hint: Center(
                       child: Text(
                         'ເລືອກໝວດ',
@@ -82,16 +88,52 @@ class _MImpDetailState extends State<MImpDetail> {
                 height: h * 0.18,
                 width: w * 0.75,
                 decoration: BoxDecoration(
-                    color: Theme.of(context).disabledColor,
-                    borderRadius: BorderRadius.circular(17)),
-                child: const Center(
-                  child: Text(
-                    'ເພີ່ມລາຍຮັບ',
-                    style: TextStyle(
-                        fontFamily: 'Phetsarath',
+                  color: Theme.of(context).dividerColor,
+                  borderRadius: BorderRadius.circular(17),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: blur,
+                      spreadRadius: 1,
+                      inset: true,
+                      offset: -distance,
+                      color: Theme.of(context).dividerColor,
+                    ),
+                    const BoxShadow(
+                      blurRadius: 2,
+                      inset: true,
+                      offset: Offset(0, 4),
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: TextField(
+                    controller: imcomeController,
+                    keyboardType: TextInputType.number,
+                    style: const TextStyle(fontSize: 27),
+                    textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                      hintText: 'ເພີ່ມລາຍຮັບ',
+                      hintStyle: TextStyle(
                         fontSize: 27,
+                        color: Theme.of(context).indicatorColor,
                         fontWeight: FontWeight.w500,
-                        letterSpacing: -0.7),
+                        fontFamily: 'Phetsarath',
+                        letterSpacing: -0.7,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -99,16 +141,52 @@ class _MImpDetailState extends State<MImpDetail> {
                 height: h * 0.18,
                 width: w * 0.75,
                 decoration: BoxDecoration(
-                    color: Theme.of(context).disabledColor,
-                    borderRadius: BorderRadius.circular(17)),
-                child: const Center(
-                  child: Text(
-                    'ວັນ/ເວລາ/ປີ',
-                    style: TextStyle(
-                        fontFamily: 'Phetsarath',
-                        fontSize: 27,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: -0.7),
+                  color: Theme.of(context).dividerColor,
+                  borderRadius: BorderRadius.circular(17),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: blur,
+                      spreadRadius: 1,
+                      inset: true,
+                      offset: -distance,
+                      color: Theme.of(context).dividerColor,
+                    ),
+                    const BoxShadow(
+                      blurRadius: 2,
+                      inset: true,
+                      offset: Offset(0, 4),
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: TextField(
+                    controller: datetimeController,
+                    keyboardType: TextInputType.number,
+                    style: const TextStyle(fontSize: 27),
+                    textAlign: TextAlign.center,
+                    // maxLength: 10,
+                    decoration: InputDecoration(
+                      hintText: 'ວັນ/ເວລາ/ປີ',
+                      hintStyle: TextStyle(
+                          fontSize: 27,
+                          color: Theme.of(context).indicatorColor,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Phetsarath',
+                          letterSpacing: -0.7),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -116,30 +194,81 @@ class _MImpDetailState extends State<MImpDetail> {
                 height: h * 0.18,
                 width: w * 0.75,
                 decoration: BoxDecoration(
-                    color: Theme.of(context).disabledColor,
-                    borderRadius: BorderRadius.circular(17)),
-                child: const Center(
-                  child: Text(
-                    'ລາຍລະອຽດເພີ່ມເຕີມ',
-                    style: TextStyle(
-                        fontFamily: 'Phetsarath',
-                        fontSize: 27,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: -0.7),
+                  color: Theme.of(context).dividerColor,
+                  borderRadius: BorderRadius.circular(17),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: blur,
+                      spreadRadius: 1,
+                      inset: true,
+                      offset: -distance,
+                      color: Theme.of(context).dividerColor,
+                    ),
+                    const BoxShadow(
+                      blurRadius: 2,
+                      inset: true,
+                      offset: Offset(0, 4),
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: TextFormField(
+                    minLines: 1,
+                    maxLines: 5,
+                    controller: describeController,
+                    style: const TextStyle(fontSize: 27),
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                      hintText: 'ລາຍລະອຽດເພີ່ມເຕີມ',
+                      hintStyle: TextStyle(
+                          fontSize: 27,
+                          color: Theme.of(context).indicatorColor,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Phetsarath',
+                          letterSpacing: -0.7),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  Container(
                     width: 100,
                     height: 47,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: 2,
+                          offset: Offset(0, 5),
+                          color: Color.fromARGB(255, 179, 179, 179),
+                        ),
+                      ],
+                    ),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        imcomeController.clear();
+                        datetimeController.clear();
+                        describeController.clear();
+                      },
                       style: ButtonStyle(
                         backgroundColor: const MaterialStatePropertyAll(
-                          Color.fromARGB(255, 217, 96, 85),
+                          Color.fromARGB(255, 70, 118, 154),
                         ),
                         shape: MaterialStateProperty.all(
                           RoundedRectangleBorder(
@@ -159,9 +288,19 @@ class _MImpDetailState extends State<MImpDetail> {
                   const SizedBox(
                     width: 25,
                   ),
-                  SizedBox(
+                  Container(
                     width: 100,
                     height: 47,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: 2,
+                          offset: Offset(0, 5),
+                          color: Color.fromARGB(255, 195, 195, 195),
+                        ),
+                      ],
+                    ),
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -171,7 +310,7 @@ class _MImpDetailState extends State<MImpDetail> {
                       },
                       style: ButtonStyle(
                         backgroundColor: const MaterialStatePropertyAll(
-                          Color.fromARGB(255, 119, 170, 100),
+                          Color.fromARGB(255, 176, 218, 216),
                         ),
                         shape: MaterialStateProperty.all(
                           RoundedRectangleBorder(
@@ -206,6 +345,9 @@ class PImpDetail extends StatefulWidget {
 }
 
 class _PImpDetailState extends State<PImpDetail> {
+  TextEditingController paidController = TextEditingController();
+  TextEditingController dattimeController = TextEditingController();
+  TextEditingController describeController = TextEditingController();
   final items = [
     'ເຄື່ອງໃຊ້',
     'ຄ່ານໍ້າ/ໄຟ',
@@ -218,6 +360,8 @@ class _PImpDetailState extends State<PImpDetail> {
     'ເດີນທາງ',
   ];
   String? value;
+  Offset distance = const Offset(0, 10);
+  double blur = 10.0;
 
   @override
   Widget build(BuildContext context) {
@@ -256,6 +400,7 @@ class _PImpDetailState extends State<PImpDetail> {
                     borderRadius: BorderRadius.circular(17)),
                 child: Center(
                   child: DropdownButton<String>(
+                    iconSize: 50,
                     hint: Center(
                       child: Text(
                         'ເລືອກໝວດ',
@@ -281,16 +426,52 @@ class _PImpDetailState extends State<PImpDetail> {
                 height: h * 0.18,
                 width: w * 0.75,
                 decoration: BoxDecoration(
-                    color: Theme.of(context).disabledColor,
-                    borderRadius: BorderRadius.circular(17)),
-                child: const Center(
-                  child: Text(
-                    'ເພີ່ມລາຍຈ່າຍ',
-                    style: TextStyle(
-                        fontFamily: 'Phetsarath',
-                        fontSize: 27,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: -0.7),
+                  color: Theme.of(context).dividerColor,
+                  borderRadius: BorderRadius.circular(17),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: blur,
+                      spreadRadius: 1,
+                      inset: true,
+                      offset: -distance,
+                      color: Theme.of(context).dividerColor,
+                    ),
+                    const BoxShadow(
+                      blurRadius: 2,
+                      inset: true,
+                      offset: Offset(0, 4),
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: TextField(
+                    controller: paidController,
+                    keyboardType: TextInputType.number,
+                    style: const TextStyle(fontSize: 27),
+                    textAlign: TextAlign.center,
+                    // maxLength: 10,
+                    decoration: InputDecoration(
+                      hintText: 'ເພີ່ມລາຍຈ່າຍ',
+                      hintStyle: TextStyle(
+                          fontSize: 27,
+                          color: Theme.of(context).indicatorColor,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Phetsarath',
+                          letterSpacing: -0.7),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -298,16 +479,52 @@ class _PImpDetailState extends State<PImpDetail> {
                 height: h * 0.18,
                 width: w * 0.75,
                 decoration: BoxDecoration(
-                    color: Theme.of(context).disabledColor,
-                    borderRadius: BorderRadius.circular(17)),
-                child: const Center(
-                  child: Text(
-                    'ວັນ/ເວລາ/ປີ',
-                    style: TextStyle(
-                        fontFamily: 'Phetsarath',
-                        fontSize: 27,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: -0.7),
+                  color: Theme.of(context).dividerColor,
+                  borderRadius: BorderRadius.circular(17),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: blur,
+                      spreadRadius: 1,
+                      inset: true,
+                      offset: -distance,
+                      color: Theme.of(context).dividerColor,
+                    ),
+                    const BoxShadow(
+                      blurRadius: 2,
+                      inset: true,
+                      offset: Offset(0, 4),
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: TextField(
+                    controller: dattimeController,
+                    keyboardType: TextInputType.number,
+                    style: const TextStyle(fontSize: 27),
+                    textAlign: TextAlign.center,
+                    // maxLength: 10,
+                    decoration: InputDecoration(
+                      hintText: 'ວັນ/ເວລາ/ປີ',
+                      hintStyle: TextStyle(
+                          fontSize: 27,
+                          color: Theme.of(context).indicatorColor,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Phetsarath',
+                          letterSpacing: -0.7),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -315,30 +532,81 @@ class _PImpDetailState extends State<PImpDetail> {
                 height: h * 0.18,
                 width: w * 0.75,
                 decoration: BoxDecoration(
-                    color: Theme.of(context).disabledColor,
-                    borderRadius: BorderRadius.circular(17)),
-                child: const Center(
-                  child: Text(
-                    'ລາຍລະອຽດເພີ່ມເຕີມ',
-                    style: TextStyle(
-                        fontFamily: 'Phetsarath',
-                        fontSize: 27,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: -0.7),
+                  color: Theme.of(context).dividerColor,
+                  borderRadius: BorderRadius.circular(17),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: blur,
+                      spreadRadius: 1,
+                      inset: true,
+                      offset: -distance,
+                      color: Theme.of(context).dividerColor,
+                    ),
+                    const BoxShadow(
+                      blurRadius: 2,
+                      inset: true,
+                      offset: Offset(0, 4),
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: TextFormField(
+                    minLines: 1,
+                    maxLines: 5,
+                    controller: describeController,
+                    style: const TextStyle(fontSize: 27),
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                      hintText: 'ລາຍລະອຽດເພີ່ມເຕີມ',
+                      hintStyle: TextStyle(
+                          fontSize: 27,
+                          color: Theme.of(context).indicatorColor,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Phetsarath',
+                          letterSpacing: -0.7),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).dividerColor,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  Container(
                     width: 100,
                     height: 47,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: 2,
+                          offset: Offset(0, 5),
+                          color: Color.fromARGB(255, 179, 179, 179),
+                        ),
+                      ],
+                    ),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        paidController.clear();
+                        dattimeController.clear();
+                        describeController.clear();
+                      },
                       style: ButtonStyle(
                         backgroundColor: const MaterialStatePropertyAll(
-                          Color.fromARGB(255, 217, 96, 85),
+                          Color.fromARGB(255, 70, 118, 154),
                         ),
                         shape: MaterialStateProperty.all(
                           RoundedRectangleBorder(
@@ -358,9 +626,19 @@ class _PImpDetailState extends State<PImpDetail> {
                   const SizedBox(
                     width: 25,
                   ),
-                  SizedBox(
+                  Container(
                     width: 100,
                     height: 47,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: 2,
+                          offset: Offset(0, 5),
+                          color: Color.fromARGB(255, 195, 195, 195),
+                        ),
+                      ],
+                    ),
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -370,7 +648,7 @@ class _PImpDetailState extends State<PImpDetail> {
                       },
                       style: ButtonStyle(
                         backgroundColor: const MaterialStatePropertyAll(
-                          Color.fromARGB(255, 119, 170, 100),
+                          Color.fromARGB(255, 176, 218, 216),
                         ),
                         shape: MaterialStateProperty.all(
                           RoundedRectangleBorder(

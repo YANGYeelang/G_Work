@@ -1,12 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:get_auth/screens/home_screen.dart';
 import 'package:get_auth/screens/init_amount_screen.dart';
 import 'package:get_auth/screens/init_screen.dart';
-import 'package:get_auth/screens/main_screen.dart';
-import 'package:get_auth/screens/signin_screen.dart';
-import 'package:get_auth/screens/sign_out_screen.dart';
 
 class AuthController extends GetxController {
   //AuthController.instance
