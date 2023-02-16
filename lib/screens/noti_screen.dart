@@ -1,14 +1,14 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
-class NotifiScreeen extends StatefulWidget {
-  const NotifiScreeen({super.key});
+class NotifiScreen extends StatefulWidget {
+  const NotifiScreen({super.key});
 
   @override
-  State<NotifiScreeen> createState() => _NotifiScreeenState();
+  State<NotifiScreen> createState() => _NotifiScreenState();
 }
 
-class _NotifiScreeenState extends State<NotifiScreeen> {
+class _NotifiScreenState extends State<NotifiScreen> {
   final List<Map<String, dynamic>> _allList = [
     {
       'id': 1,

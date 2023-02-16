@@ -151,7 +151,7 @@ class _AboutUsState extends State<AboutUs> {
                 children: [
                   const CircleAvatar(
                     radius: 50,
-                    backgroundImage: AssetImage('assets/images/welcome.png'),
+                    backgroundImage: AssetImage('assets/images/yee.png'),
                   ),
                   Column(
                     children: [

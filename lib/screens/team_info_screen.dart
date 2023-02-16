@@ -292,7 +292,7 @@ class _TeamInfo2State extends State<TeamInfo2> {
                   children: const [
                     CircleAvatar(
                       radius: 50,
-                      backgroundImage: AssetImage('assets/images/welcome.png'),
+                      backgroundImage: AssetImage('assets/images/yee.png'),
                     ),
                     Text(
                       'ທ້າວ ຢີລ່າງຢ່າງ ໜູຊົວຢ່າງ',

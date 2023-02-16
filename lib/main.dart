@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:get_auth/components/data_class.dart';
 import 'package:get_auth/components/themes.dart';
 import 'package:get_auth/screens/auth_controller.dart';
-import 'package:get_auth/screens/spiash_screen.dart';
+import 'package:get_auth/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
         theme: CustomTheme.lightTheme,
         darkTheme: CustomTheme.darkTheme,
         themeMode: currentTheme.currentTheme,
-        home: const SpiashScreen(),
+        home: const SplashScreen(),
       ),
     );
   }

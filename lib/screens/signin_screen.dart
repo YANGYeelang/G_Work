@@ -164,7 +164,6 @@ class _SignInPageState extends State<SignInPage> {
                                     suffixIcon: IconButton(
                                       onPressed: () {
                                         setState(() {
-                                          print(!_passwordVisible!);
                                           _passwordVisible = !_passwordVisible!;
                                         });
                                       },
