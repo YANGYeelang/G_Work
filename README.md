@@ -1,6 +1,6 @@
 # get_auth
 
-A new Flutter project.
+Flutter project for my group.
 
 ## Getting Started
 
